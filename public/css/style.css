@@ -1,0 +1,217 @@
+/** @param color 
+* blue #31AFD4
+* Black #050505
+*
+* @param font :
+*font-family: 'Holtwood One SC', serif;
+*font-family: 'Roboto Condensed', sans-serif;
+*font-family: 'Gotu', sans-serif;
+*/
+
+
+p {
+    font-family: 'Roboto Condensed', sans-serif;
+    font-family: 'Gotu', sans-serif; 
+}
+
+/*Navbar*/
+.logo {
+    font-size: 1em;
+}
+
+.navbar {
+    font-family: 'Holtwood One SC', serif;
+    border: solid;
+    color: #fff;
+    background-color: #050505;
+}
+
+h1 {
+    z-index: -99;
+    width:100%;
+    text-align: center;
+    font-size: 1.2em;
+    font-family: 'Holtwood One SC', serif;
+}
+
+/*Img*/
+#header_img {
+    width: 90vw;
+    margin: 60px auto 0;
+    border: solid;
+    position: relative;
+}
+
+.caption {
+    text-align: center;
+    width: 100%;
+    position: absolute;
+    font-size: 1.5em;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #fff;
+}
+
+.imgtest {
+    width: 100%;
+    height: 50vh;
+}
+
+/*section description */
+#description {
+    color: #fff ;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 3px;
+    width: 80%;
+    text-align: center;
+    background-color: #050505;
+}
+
+/*section for billets*/
+.title-billet {
+    text-align: center;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #31AFD4;
+}
+
+.bloc-content {
+    margin: 20px 0 ;
+}
+
+.bloc-billets {
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid #31AFD4;
+    border-radius: 3px;
+}
+
+/*Pagination*/
+
+
+.pagination li {
+    background-color: #050505;
+    border: 1px solid #31AFD4;
+    padding: 4px;
+    border-radius: 100%;
+    color: #fff;
+    margin: 3px auto;
+}
+
+.pagination li a {
+    color: #fff;
+}
+
+/*Contact and Connexion*/
+#contact,
+.all-forms {
+    margin: 50px 0;
+    padding: 10px;
+    background-color: #5D5A58;
+    color: #fff;
+}
+
+#contact h2,
+.all-forms h2 {
+    font-family: 'Holtwood One SC', serif;
+    text-align: center;
+    padding: 20px;
+}
+
+legend {
+    text-align: center;
+}
+
+.button-submit{
+    text-align: center;
+}
+
+.btn-perso {
+    background-color: #31AFD4;
+    color: #fff;
+}
+
+footer {
+    background-color: #050505;
+    color: #fff;
+    text-align: center;
+}
+
+/*postFormView style*/
+.bloc-content .form-billet{
+    background-color: #050505;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    margin: 15px;
+    border: 1px solid #31AFD4;
+    border-radius: 3px;
+    margin: 20px 0;
+    max-height: 100vh;
+}
+
+.bloc-content .title-form {
+    font-family: 'Holtwood One SC', serif;
+    border: 2px solid #31AFD4;
+    border-radius: 3px;
+    color: #fff;
+    text-align: center;
+    width: 100px;
+    margin: 10px auto;
+}
+
+.bloc-content textarea {
+    min-height: 400px;
+    height: 400px;
+    margin-bottom: 10px;
+}
+
+.form-billet #submit {
+    color: #fff;
+    background-color: #31AFD4;
+}
+
+.form-error {
+    color : red;
+}
+
+/*adminView style*/
+.new-billet {
+    color: #fff !important;
+}
+
+.h2adminView {
+    margin-bottom: 10px;
+}
+
+.table {
+    text-align: center;
+}
+
+td a {
+    width: 100px;
+    margin: 10px 0;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

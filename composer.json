@@ -1,0 +1,8 @@
+{
+  "autoload": {
+    "psr-4": {
+      "Blog\\config\\":"config/",
+      "Blog\\src\\": "src/"
+    }
+  }
+}
