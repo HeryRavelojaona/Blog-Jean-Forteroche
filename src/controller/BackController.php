@@ -2,7 +2,10 @@
 
 namespace Blog\src\controller;
 
-class BackController
+use Blog\config\Parameter;
+
+class BackController extends Controller
 {
+   
 
 }

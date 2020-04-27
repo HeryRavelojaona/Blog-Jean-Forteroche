@@ -31,7 +31,7 @@ CREATE TABLE IF NOT EXISTS `Blog`.`user` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
-
+ALTER TABLE `user` ADD `status` BOOLEAN NOT NULL DEFAULT FALSE AFTER `role`;
 -- -----------------------------------------------------
 -- Table `Blog`.`article`
 -- -----------------------------------------------------

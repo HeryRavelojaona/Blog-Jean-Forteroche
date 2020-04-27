@@ -4,5 +4,8 @@
       "Blog\\config\\":"config/",
       "Blog\\src\\": "src/"
     }
+  },
+  "require": {
+    "swiftmailer/swiftmailer": "^5.4"
   }
 }

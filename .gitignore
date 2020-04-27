@@ -2,3 +2,6 @@
 /vendor/
 
 composer dump-autoload
+
+git remote add origin https://github.com/HeryRavelojaona/blog-jean-forteroche.git
+git push -u origin master
