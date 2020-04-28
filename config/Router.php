@@ -32,6 +32,9 @@ class Router
                 elseif($route === 'validateAccount'){
                     $this->frontController->validateAccount($this->request->getGet());
                 }
+                elseif($route === 'login'){
+                    $this->frontController->login($this->request->getPost());
+                }
             }
             else{
                 $this->frontController->home();

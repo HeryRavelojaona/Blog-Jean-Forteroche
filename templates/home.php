@@ -12,9 +12,25 @@
                             <a class="nav-link" href="../public/index.php">Accueil</a>
                         </li>
                         <li class="nav-item dropdown">
+                <?php
+                    if($this->session->get('pseudo'))
+                    {
+                ?>
+                            <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Votre espace</a>
+                            <ul class="dropdown-menu" role="menu">
+                            <li><a href="../public/index.php?route=profile">Profil</a></li>
+                            <li><a href="../public/index.php?route=logout">Déconnexion</a></li>
+                <?php 
+                    }else{ 
+                ?>
                             <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Login</a>
                             <ul class="dropdown-menu" role="menu">
                             <li><a href="../public/index.php?route=register">S'inscrire</a></li>
+                            <li><a href="../public/index.php?route=login">Connexion</a></li>        
+                <?php 
+                } 
+                ?>
+                        </li>
                     </ul>
                 </div>
             </nav>
@@ -24,8 +40,8 @@
             <div class='caption'>
                 <?= $this->session->show('register'); ?>
                 <?= $this->session->show('validate'); ?>
+                <?= $this->session->show('login'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
-                <?= $this->session->show('token'); ?>
             </div>   
         </section>
         <section id="description">

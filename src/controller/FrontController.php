@@ -51,10 +51,34 @@ class FrontController extends Controller
         if($get->get('token')) {
                 $this->userDAO->validateAccount($get);
                 $this->session->set('validate', 'Votre compte est bien validé');
-                header('Location: ../public/index.php');
-                exit();
-
+                return $this->view->render('login');
         }
         return $this->view->render('register');
     }
+
+    public function login(Parameter $post)
+    {
+        if($post->get('submit')) {
+
+            $result = $this->userDAO->login($post);
+            if($result && $result['isPasswordValid']) {
+                if($result['result']['status'] == 1){
+                    $this->session->set('login', 'Bonjour '.$result['result']['pseudo'].'');
+                    $this->session->set('id', $result['result']['id']);
+                    $this->session->set('pseudo', $result['result']['pseudo']);
+                    header('Location: ../public/index.php');
+                    exit();
+                }
+            }
+            else {
+                $errors = 'Le pseudo ou le mot de passe sont incorrects';
+                return $this->view->render('login', [
+                    'post'=> $post,
+                    'errors'=> $errors
+                ]);
+            }
+        }
+        return $this->view->render('login');
+    }
+    
 }

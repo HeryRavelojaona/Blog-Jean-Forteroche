@@ -53,5 +53,17 @@ class UserDAO extends DAO
             'token'=>$token
         ]);
       
-       }
+    }
+
+    public function login(Parameter $post)
+    {
+        $sql = 'SELECT * FROM user WHERE mail = ?';
+        $data = $this->createQuery($sql, [$post->get('mail')]);
+        $result = $data->fetch();
+        $isPasswordValid = password_verify($post->get('password'), $result['password']);
+        return [
+            'result' => $result,
+            'isPasswordValid' => $isPasswordValid
+        ];
+    }
 }
