@@ -28,6 +28,10 @@ class Router
                 if($route === 'register'){
                     $this->frontController->register($this->request->getPost());
                 }
+                
+                elseif($route === 'validateAccount'){
+                    $this->frontController->validateAccount($this->request->getGet());
+                }
             }
             else{
                 $this->frontController->home();

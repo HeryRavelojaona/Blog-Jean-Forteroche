@@ -23,6 +23,7 @@
             <img src="images/book.jpg"class="img-fluid imgtest"/>
             <div class='caption'>
                 <?= $this->session->show('register'); ?>
+                <?= $this->session->show('validate'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
                 <?= $this->session->show('token'); ?>
             </div>   

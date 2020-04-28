@@ -39,6 +39,7 @@ class UserValidation extends Validation
             $error = $this->checkPass($name, $value );
             $this->addError($name, $error);
         }
+  
     }
 
     private function addError($name, $error) {
@@ -94,7 +95,6 @@ class UserValidation extends Validation
         if($this->constraint->maxLength($name, $value, 255)) {
             return $this->constraint->maxLength('samePassword', $value, 255);
         }
-     
     }
 
 }

@@ -9,9 +9,8 @@ class UserDAO extends DAO
 {
     public function register(Parameter $post, $token)
     {  
-        
-        $this->checkUser($post);
-        $this->checkMail($post);
+        //$this->checkUser($post);
+        //$this->checkMail($post); verifier utilité
         $token;
         $role = 'none';
         $sql = 'INSERT INTO user (pseudo, password, mail, token, role, status) VALUES (:pseudo, :password, :mail, :token, :role, :status)';
@@ -44,4 +43,15 @@ class UserDAO extends DAO
             return '<p>Votre mail est déja utiliser</p>';
         }  
     }
+
+    public function validateAccount(Parameter $get)
+    {
+        $token = $get->get('token');
+        $sql = "UPDATE user SET status = :status  WHERE token = :token";
+        $this->createQuery($sql,
+        [   'status'=>1,
+            'token'=>$token
+        ]);
+      
+       }
 }

@@ -45,4 +45,16 @@ class FrontController extends Controller
         }
         return $this->view->render('register');
     }
+
+    public function validateAccount(Parameter $get)
+    {
+        if($get->get('token')) {
+                $this->userDAO->validateAccount($get);
+                $this->session->set('validate', 'Votre compte est bien validé');
+                header('Location: ../public/index.php');
+                exit();
+
+        }
+        return $this->view->render('register');
+    }
 }
