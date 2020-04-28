@@ -53,5 +53,15 @@ class UserDAO extends DAO
             'token'=>$token
         ]);
       
-       }
+    }
+
+    //check if user is registered
+    public function checkAccount(Parameter $get)
+    {
+        $sql = 'SELECT COUNT(status) FROM user WHERE token = ?';
+        $result = $this->createQuery($sql, [$get->get('token')]);
+        $isRegistered = $result->fetchColumn();
+    
+        return $isRegistered;
+    }
 }
