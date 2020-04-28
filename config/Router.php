@@ -2,6 +2,7 @@
 
 namespace Blog\config;
 use Blog\src\controller\FrontController;
+use Blog\src\controller\BackController;
 use Blog\src\controller\ErrorController;
 
 use Exception;
@@ -10,12 +11,14 @@ class Router
 {
     private $frontController;
     private $errorController;
+    private $backController;
     private $request;
 
     public function __construct()
     {
         $this->frontController = new FrontController();
         $this->errorController = new ErrorController();
+        $this->backController = new BackController();
         $this->request = new Request();
     }
 
@@ -34,6 +37,9 @@ class Router
                 }
                 elseif($route === 'login'){
                     $this->frontController->login($this->request->getPost());
+                }
+                elseif($route === 'profile'){
+                    $this->backController->profile();
                 }
             }
             else{
