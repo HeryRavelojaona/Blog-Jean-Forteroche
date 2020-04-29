@@ -13,6 +13,9 @@
                         <li class="nav-item dropdown  active">
                             <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Votre espace</a>
                             <ul class="dropdown-menu" role="menu">
+                    <?php if($this->session->get('role') === 'admin') { ?>
+                            <li><a href="../public/index.php?route=administration">Administration</a></li>
+                    <?php } ?>
                             <li><a href="../public/index.php?route=logout">Déconnexion</a></li>
                         </li>
                     </ul>
@@ -30,7 +33,8 @@
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billets">
                         <h3 class="title-billet">Pseudo: <?= $this->session->get('pseudo'); ?></h3>
-                        <p class="billet">Identifiant: <?= $this->session->get('id'); ?>
+                        <p class="billet">Identifiant: <?= $this->session->get('id'); ?><br/>
+                        <p class="billet">Role: <?= $this->session->get('role'); ?>
                         <p class="billet">Email: <?= $this->session->get('mail'); ?>
                         </p>
                         <a href="../public/index.php?route=updatePassword">Modifier votre mot de passe</a><br/>

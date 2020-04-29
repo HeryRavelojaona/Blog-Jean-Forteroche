@@ -19,6 +19,9 @@
                             <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Votre espace</a>
                             <ul class="dropdown-menu" role="menu">
                             <li><a href="../public/index.php?route=profile">Profil</a></li>
+                    <?php if($this->session->get('role') === 'admin') { ?>
+                            <li><a href="../public/index.php?route=administration">Administration</a></li>
+                    <?php } ?>
                             <li><a href="../public/index.php?route=logout">Déconnexion</a></li>
                 <?php 
                     }else{ 

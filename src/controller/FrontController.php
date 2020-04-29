@@ -72,6 +72,7 @@ class FrontController extends Controller
                     $this->session->set('id', $result['result']['id']);
                     $this->session->set('pseudo', $result['result']['pseudo']);
                     $this->session->set('mail', $result['result']['mail']);
+                    $this->session->set('role', $result['result']['role']);
                     header('Location: ../public/index.php');
                     exit();
                 }
@@ -86,5 +87,4 @@ class FrontController extends Controller
         }
         return $this->view->render('login');
     }
-    
 }

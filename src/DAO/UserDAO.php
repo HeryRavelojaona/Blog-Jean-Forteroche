@@ -10,7 +10,7 @@ class UserDAO extends DAO
     public function register(Parameter $post, $token)
     {  
         $token;
-        $role = 'none';
+        $role = 'user';
         $sql = 'INSERT INTO user (pseudo, password, mail, token, role, status) VALUES (:pseudo, :password, :mail, :token, :role, :status)';
         $this->createQuery($sql, 
         ['pseudo'=>$post->get('pseudo'),
