@@ -14,7 +14,7 @@
                             <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Login</a>
                             <ul class="dropdown-menu" role="menu">
                             <li><a href="../public/index.php?route=register">S'inscrire</a></li>
-                            <li><a href="../public/index.php?route=connection">Connexion</a></li>
+                            <li><a href="../public/index.php?route=login">Connexion</a></li>
                         </li>
                     </ul>
                 </div>

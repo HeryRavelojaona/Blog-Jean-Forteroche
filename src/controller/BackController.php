@@ -85,6 +85,18 @@ class BackController extends Controller
         return $this->view->render('administration');
     }
 
+    public function addArticle(Parameter $post)
+    {
+        if($post->get('submit')) {
+            $errors = $this->validation->validate($post, 'Article');
+            return $this->view->render('addarticle', [
+                'post' => $post,
+                'errors' => $errors
+            ]);
+        }
+        return $this->view->render('addarticle');
+    }
+
 
 
 }

@@ -7,6 +7,7 @@ use Blog\src\model\View;
 use Blog\config\Mailing;
 use Blog\src\constraint\Validation;
 use Blog\src\DAO\UserDAO;
+use Blog\src\DAO\ArticleDAO;
 
 
 abstract class Controller
@@ -14,6 +15,7 @@ abstract class Controller
     
     protected $view;
     protected $userDAO;
+    protected $articleDAO;
     private $request;
     protected $get;
     protected $post;
@@ -26,6 +28,7 @@ abstract class Controller
         $this->request = new Request();
         $this->view = new View();
         $this->userDAO = new UserDAO();
+        $this->articleDAO = new ArticleDAO();
         $this->validation = new Validation();
         $this->mailing = new Mailing();
         $this->get = $this->request->getGet();

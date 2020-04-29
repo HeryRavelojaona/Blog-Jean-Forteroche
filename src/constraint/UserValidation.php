@@ -77,13 +77,13 @@ class UserValidation extends Validation
     private function checkPass($name, $value)
     {
         if($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('password', $value);
+            return $this->constraint->notBlank('mot de passe', $value);
         }
         if($this->constraint->minLength($name, $value, 2)) {
-            return $this->constraint->minLength('password', $value, 2);
+            return $this->constraint->minLength('mot de passe', $value, 2);
         }
         if($this->constraint->maxLength($name, $value, 255)) {
-            return $this->constraint->maxLength('password', $value, 255);
+            return $this->constraint->maxLength('mot de passe', $value, 255);
         } 
 
         if($this->constraint->notBlank($name, $value)) {

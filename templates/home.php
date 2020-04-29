@@ -47,6 +47,7 @@
                 <?= $this->session->show('update_password'); ?>
                 <?= $this->session->show('mailforgot'); ?>
                 <?= $this->session->show('delete_account'); ?>
+                <?= $this->session->show('validate'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
             </div>   
         </section>
