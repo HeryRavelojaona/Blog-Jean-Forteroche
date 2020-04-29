@@ -13,7 +13,7 @@
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-link active" data-toggle="dropdown" role="button" aria-expanded="false">Login</a>
                             <ul class="dropdown-menu" role="menu">
-                            <li><a href="../public/index.php?route=register">S'inscrire</a></li>
+                            <li><a href="../public/index.php?route=login">Connexion</a></li>
                     </ul>
                 </div>
             </nav>

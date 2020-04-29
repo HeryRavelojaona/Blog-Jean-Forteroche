@@ -11,10 +11,11 @@ class Validation
             $errors = $userValidation->check($data);
             return $errors;
         }
-        elseif($name === 'validateAccount') {
+        elseif($name === 'updatePassword') {
             $userValidation = new UserValidation();
             $errors = $userValidation->check($data);
             return $errors;
         }
+
     }
 }
