@@ -71,4 +71,15 @@ class BackController extends Controller
         return $this->errorController->errorNotFound();
     }
 
+    public function deleteAccount()
+    {
+        $this->userDAO->deleteAccount($this->session->get('mail'));
+        $this->session->stop();
+        $this->session->start();
+        $this->session->set('delete_account', 'Votre compte a bien été supprimé');
+        header('Location: ../public/index.php');
+    }
+
+
+
 }

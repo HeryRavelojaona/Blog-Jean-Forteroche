@@ -53,6 +53,10 @@ class Router
                 elseif($route === 'changepass'){
                     $this->backController->changePassword($this->request->getGet());
                 }
+                elseif($route === 'deleteAccount'){
+                    $this->backController->deleteAccount();
+                }
+
             }
             else{
                 $this->frontController->home();

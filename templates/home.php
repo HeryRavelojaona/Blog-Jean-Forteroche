@@ -43,6 +43,7 @@
                 <?= $this->session->show('logout'); ?>
                 <?= $this->session->show('update_password'); ?>
                 <?= $this->session->show('mailforgot'); ?>
+                <?= $this->session->show('delete_account'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
             </div>   
         </section>

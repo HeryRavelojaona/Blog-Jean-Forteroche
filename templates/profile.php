@@ -33,7 +33,8 @@
                         <p class="billet">Identifiant: <?= $this->session->get('id'); ?>
                         <p class="billet">Email: <?= $this->session->get('mail'); ?>
                         </p>
-                        <a href="../public/index.php?route=updatePassword">Modifier votre mot de passe</a>
+                        <a href="../public/index.php?route=updatePassword">Modifier votre mot de passe</a><br/>
+                        <a href="../public/index.php?route=deleteAccount">Supprimer votre compte</a>
                         </a>
                     </div>
                 </div>

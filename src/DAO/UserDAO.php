@@ -82,4 +82,10 @@ class UserDAO extends DAO
             return $isUnique;
         }  
     }
+
+    public function deleteAccount($mail)
+    {
+        $sql = 'DELETE FROM user WHERE mail = ?';
+        $this->createQuery($sql, [$mail]);
+    }
 }
