@@ -53,16 +53,6 @@ class UserDAO extends DAO
       
     }
 
-<<<<<<< HEAD
-    //check if user is registered
-    public function checkAccount(Parameter $get)
-    {
-        $sql = 'SELECT COUNT(status) FROM user WHERE token = ?';
-        $result = $this->createQuery($sql, [$get->get('token')]);
-        $isRegistered = $result->fetchColumn();
-    
-        return $isRegistered;
-=======
     public function login(Parameter $post)
     {
         $sql = 'SELECT * FROM user WHERE mail = ?';
@@ -91,6 +81,5 @@ class UserDAO extends DAO
         if($isUnique) {
             return $isUnique;
         }  
->>>>>>> userInterface
     }
 }
