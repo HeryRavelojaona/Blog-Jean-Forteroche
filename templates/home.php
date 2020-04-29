@@ -39,8 +39,10 @@
             <img src="images/book.jpg"class="img-fluid imgtest"/>
             <div class='caption'>
                 <?= $this->session->show('register'); ?>
-                <?= $this->session->show('validate'); ?>
                 <?= $this->session->show('login'); ?>
+                <?= $this->session->show('logout'); ?>
+                <?= $this->session->show('update_password'); ?>
+                <?= $this->session->show('mailforgot'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
             </div>   
         </section>

@@ -4,7 +4,7 @@ namespace Blog\src\controller;
 
 use Blog\config\Request;
 use Blog\src\model\View;
-use Blog\src\model\Mailing;
+use Blog\config\Mailing;
 use Blog\src\constraint\Validation;
 use Blog\src\DAO\UserDAO;
 

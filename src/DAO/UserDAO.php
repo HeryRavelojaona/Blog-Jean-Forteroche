@@ -9,8 +9,6 @@ class UserDAO extends DAO
 {
     public function register(Parameter $post, $token)
     {  
-        //$this->checkUser($post);
-        //$this->checkMail($post); verifier utilité
         $token;
         $role = 'none';
         $sql = 'INSERT INTO user (pseudo, password, mail, token, role, status) VALUES (:pseudo, :password, :mail, :token, :role, :status)';
@@ -65,5 +63,23 @@ class UserDAO extends DAO
             'result' => $result,
             'isPasswordValid' => $isPasswordValid
         ];
+    }
+
+    public function updatePassword(Parameter $post, $mail)
+    {
+        $sql = 'UPDATE user SET password = :password WHERE mail = :mail';
+        $this->createQuery($sql, [
+            'password'=>password_hash($post->get('password'), PASSWORD_BCRYPT),
+            'mail'=> $mail]);
+    }
+
+    public function checkMailToChangepass(Parameter $get)
+    {
+        $sql = 'SELECT COUNT(mail) FROM user WHERE mail = ?';
+        $result = $this->createQuery($sql, [$get->get('mail')]);
+        $isUnique = $result->fetchColumn();
+        if($isUnique) {
+            return $isUnique;
+        }  
     }
 }
