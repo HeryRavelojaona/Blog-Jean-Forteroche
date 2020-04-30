@@ -1,6 +1,6 @@
 .idea/
 /vendor/
-
+config/dev.php
 composer dump-autoload
 
 git remote add origin https://github.com/HeryRavelojaona/blog-jean-forteroche.git
