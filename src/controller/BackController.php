@@ -78,6 +78,7 @@ class BackController extends Controller
         $this->session->start();
         $this->session->set('delete_account', 'Votre compte a bien été supprimé');
         header('Location: ../public/index.php');
+        exit();
     }
 
     public function administration()
@@ -89,6 +90,15 @@ class BackController extends Controller
     {
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'Article');
+            if(!$this->session->get('role') === 'admin'){
+                $errors = 'Accès interdit';
+            }
+            if(!$errors){
+                $this->articleDAO->addArticle($post);
+                $this->session->set('addArticle', 'Article bien ajouté');
+                header('Location: ../public/index.php?route=administration');
+                exit();
+            }
             return $this->view->render('addarticle', [
                 'post' => $post,
                 'errors' => $errors

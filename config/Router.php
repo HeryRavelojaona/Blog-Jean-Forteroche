@@ -62,7 +62,7 @@ class Router
                 elseif($route === 'addarticle'){
                     $this->backController->addArticle($this->request->getPost());
                 }
-
+                
             }
             else{
                 $this->frontController->home();

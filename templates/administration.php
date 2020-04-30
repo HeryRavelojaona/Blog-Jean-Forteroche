@@ -23,7 +23,7 @@
         <section id="header_img">
             <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
             <div class='caption'>
-                 <?= $this->session->show('add_article'); ?>
+                 <?= $this->session->show('addArticle'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1> 
             </div>   
         </section>

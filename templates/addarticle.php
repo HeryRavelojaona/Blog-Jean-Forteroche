@@ -22,8 +22,9 @@
             </nav>
         </header>
         <section id="header_img">
-            <img src="images/book.jpg"class="img-fluid imgtest"/>
-            <div class='caption captionOne'>     
+            <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
+            <div class='caption'>
+                <h1>Billet simple<br>pour l'Alaska</h1> 
             </div>   
         </section>
         <section id="description">
@@ -33,6 +34,7 @@
             <div class="row">
                 <div class="bloc-content col-md-12">
                     <form class="form-billet form-group" action="../public/index.php?route=addarticle" method="post">
+                        <input type="hidden" name="user_id" value="<?= $this->session->get('id'); ?>" >  
                         <label for="title" class="title-form">Titre</label>
                         <input type="text" name="title" placeholder="Titre" class="title-billet form-control">
                         <span class="form-error"><?= isset($errors['title']) ? $errors['title']: ''; ?></span>
