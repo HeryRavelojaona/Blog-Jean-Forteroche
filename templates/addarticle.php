@@ -41,9 +41,14 @@
                         <label for="content" class="title-form">Billet</label>
                         <textarea name="content" class="billet form-control " ></textarea>
                         <span class="form-error"><?= isset($errors['content']) ? $errors['content']: ''; ?></span>
-                        <button type="reset" class="btn btn-danger">Effacer</button>
-                        <input type="submit" class="btn btn-warning" name="submit" id="submit" value="Valider">
+                    <div class="row">
+                        <input type="submit" class="btn btn-warning col-md-6 " name="save" id="save" value="Enregistrer">
+                        <input type="submit" class="btn  col-md-6 " name="submit" id="submit" value="Publier">
+                    </div>
+                        <button type="reset" class="btn btn-danger delete" >Effacer</button>
+                        
                     </form>
                 </div>
+                <a href="../public/index.php?route=administration" class="btn btn-info return">Retour</a>
             </div>
         </section>

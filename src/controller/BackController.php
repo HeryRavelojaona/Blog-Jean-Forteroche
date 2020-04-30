@@ -88,14 +88,20 @@ class BackController extends Controller
 
     public function addArticle(Parameter $post)
     {
-        if($post->get('submit')) {
+        if($post->get('save') || $post->get('submit') ) {
             $errors = $this->validation->validate($post, 'Article');
             if(!$this->session->get('role') === 'admin'){
                 $errors = 'Accès interdit';
             }
             if(!$errors){
+                //save article in database
                 $this->articleDAO->addArticle($post);
                 $this->session->set('addArticle', 'Article bien ajouté');
+                //publish article
+                if($post->get('submit')) {
+                    return $this->view->render('home');
+                }
+
                 header('Location: ../public/index.php?route=administration');
                 exit();
             }
