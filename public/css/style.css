@@ -166,13 +166,28 @@ footer {
     margin-bottom: 10px;
 }
 
+.form-billet .delete {
+   
+    width: 40%;
+    margin: 10px auto;
+}
+
+.form-billet #save {
+    color: #000;
+    margin: 10px auto;
+}
 .form-billet #submit {
     color: #fff;
     background-color: #31AFD4;
+    margin: 10px auto;
 }
 
 .form-error {
     color : red;
+}
+/*button return*/
+.return {
+    margin : 10px auto;
 }
 
 /*adminView style*/
