@@ -33,7 +33,7 @@ class FrontController extends Controller
             if(!$errors){
                 $token = password_hash(rand(), PASSWORD_BCRYPT);
                 $this->userDAO->register($post, $token);
-                $this->mailing->validateAccount($post->get('mail'), $token, $post->get('pseudo'));
+                $this->mailing->validateAccount($post->get('mail'), $token);
                 $this->session->set('register', 'Validé votre inscription par mail');
                 header('Location: ../public/index.php');
                 exit();
