@@ -65,7 +65,7 @@
             ?>
                 <div class="bloc-content col-md-6 " >
                     <div class="bloc-billets">
-                        <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?><?= htmlspecialchars($article->getId());?></h3>
+                        <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?></h3>
                         <p class="billet"><?= substr(htmlspecialchars($article->getContent()),0, 500);?></p>
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire la suite...
                             <i class="fas fa-book-open"></i>

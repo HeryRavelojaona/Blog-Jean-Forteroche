@@ -32,8 +32,10 @@ class ArticleDAO extends DAO
 
     public function showArticles()
     {
-        //$sql = 'SELECT * FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at DESC';
-        $sql = 'SELECT * FROM article ORDER BY article.created_at DESC';
+        //articles for one admin
+        $sql = 'SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at DESC';
+        //for all admins
+        //$sql = 'SELECT * FROM article ORDER BY article.created_at DESC';
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
