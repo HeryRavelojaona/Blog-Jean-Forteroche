@@ -10,6 +10,11 @@ class Article
     private $id;
 
     /**
+     * @var int
+     */
+    private $userId;
+
+    /**
      * @var string
      */
     private $title;
@@ -25,6 +30,11 @@ class Article
      */
     private $created_at;
 
+     /**
+     * @var int
+     */
+    private $status;
+
     /**
      * @return int
      */
@@ -39,6 +49,38 @@ class Article
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return int
+     */
+    public function getUserId()
+    {
+        return $this->userId;
+    }
+
+    /**
+     * @param int $id
+     */
+    public function setUserId($userId)
+    {
+        $this->userId = $userId;
+    }
+
+    /**
+     * @return int
+     */
+    public function getStatus()
+    {
+        return $this->status;
+    }
+
+    /**
+     * @param int $status
+     */
+    public function setStatus($status)
+    {
+        $this->status = $status;
     }
 
     /**

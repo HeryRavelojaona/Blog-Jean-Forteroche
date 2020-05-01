@@ -80,11 +80,14 @@ h1 {
 }
 
 .bloc-billets {
-    padding: 15px;
+    padding: 25px;
     margin: 15px;
     border: 1px solid #31AFD4;
     border-radius: 3px;
+    min-height: 350px;
 }
+
+
 
 /*Pagination*/
 

@@ -10,9 +10,9 @@ class FrontController extends Controller
 
     public function home()
     {
-        
-        return $this->view->render('home',[
-
+        $articles = $this->articleDAO->showArticles();
+        return $this->view->render('home', [
+            'articles' => $articles
         ]);
     }
 
