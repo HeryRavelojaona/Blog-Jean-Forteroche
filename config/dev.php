@@ -9,7 +9,3 @@ const DB_USER = 'root';
 const DB_PASS = '';
 
 // mailing
-const EMAIL_HOST = 'mail.heryravelojaona.fr';
-const EMAIL_PORT = 26;
-const EMAIL_USERNAME = 'contact@heryravelojaona.fr';
-const EMAIL_PASSWORD = 'Elea454694*';
