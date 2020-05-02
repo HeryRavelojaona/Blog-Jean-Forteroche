@@ -25,6 +25,7 @@ class Router
     public function run()
     {  
         $route = $this->request->getGet()->get('route');
+        $page= $this->request->getGet()->get('page');
         try{
             if(isset($route))
             {
@@ -62,10 +63,13 @@ class Router
                 elseif($route === 'addarticle'){
                     $this->backController->addArticle($this->request->getPost());
                 }
-                
             }
-            else{
-                $this->frontController->home();
+            elseif(isset($page))
+            {
+                    $this->frontController->home($this->request->getGet());
+            }
+            else {
+                $this->frontController->home($this->request->getGet());
             }
         }
         catch (Exception $e)

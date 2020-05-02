@@ -30,10 +30,10 @@ class ArticleDAO extends DAO
          ]);
     } 
 
-    public function showArticles()
+    public function showArticles($start, $limit)
     {
         //articles for one admin
-        $sql = 'SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at DESC';
+        $sql = 'SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at DESC LIMIT '.$start.','.$limit.'';
         //for all admins
         //$sql = 'SELECT * FROM article ORDER BY article.created_at DESC';
         $result = $this->createQuery($sql);
@@ -45,5 +45,17 @@ class ArticleDAO extends DAO
         $result->closeCursor();
         return $articles;
     }
+
+    public function countArticles()
+    {
+        $sql = 'SELECT COUNT(id) FROM article';
+        $result = $this->createQuery($sql);
+        $countId = $result->fetch();
+        $count= $countId['COUNT(id)'];
+        $result->closeCursor();
+        return $count;
+    }
+
+
 
 }

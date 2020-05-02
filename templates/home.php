@@ -61,7 +61,7 @@
             <div class="row">
             <?php
                 foreach ($articles as $article)
-                {  
+                {
             ?>
                 <div class="bloc-content col-md-6 " >
                     <div class="bloc-billets">
@@ -80,11 +80,11 @@
         <div class="page">
             <ul class="pagination">
                 <li class="disabled"><a href="#">&laquo;</a></li>
-                <li class="active"><a href="default.html?page=1">1</a></li>
-                <li><a href="">2</a></li>
-                <li><a href="">3</a></li>
-                <li><a href="">4</a></li>
-                <li><a href="">5</a></li>
+            <?php
+               for($i=1; $i<=$nbPage; $i++){
+                   echo '<li><a href="../public/index.php?page='.$i.'">'.$i.'</a></li>';
+                }
+            ?>
                 <li><a href="#">&raquo;</a></li>
             </ul>
         </div>

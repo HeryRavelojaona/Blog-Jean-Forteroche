@@ -8,12 +8,32 @@ use Blog\config\Parameter;
 class FrontController extends Controller
 {
 
-    public function home()
+    public function home($get)
     {
-        $articles = $this->articleDAO->showArticles();
+        // Pagination
+        $count =  (int) $this->articleDAO->countArticles();
+        if($get->get('page')){
+                $currentPage = $get->get('page');
+        }
+        else{
+            $currentPage = 1;
+        }
+        $artPerPage = 4;
+        $start = ($currentPage - 1) * $artPerPage;
+        $limit = $start + $artPerPage; 
+        
+        $nbPage = ceil($count/$artPerPage);
+
+        /**
+        * @param int $start sql DESC LIMIT start
+        * @param int $limit sql DESC LIMIT end
+        */
+        $articles = $this->articleDAO->showArticles($start, $limit);
         return $this->view->render('home', [
-            'articles' => $articles
-        ]);
+            'articles' => $articles,
+            'nbPage' => $nbPage
+            ]);
+        
     }
 
     
