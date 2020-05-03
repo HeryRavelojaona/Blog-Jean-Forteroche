@@ -24,11 +24,13 @@ class FrontController extends Controller
         /**
         * @param int $start sql DESC LIMIT start
         * @param int $limit sql DESC LIMIT end
+        * @param boolean $published if the article is published
         */
         $start = ($currentPage - 1) * $artPerPage;
         $limit = $start + $artPerPage;
 
-        $articles = $this->articleDAO->showArticles($start, $limit);
+        $published = true;
+        $articles = $this->articleDAO->showArticles($start, $limit, $published);
         return $this->view->render('home', [
             'articles' => $articles,
             'nbPage' => $nbPage,
