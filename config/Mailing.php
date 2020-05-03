@@ -17,7 +17,7 @@ class Mailing
         //->setEncryption(EMAIL_ENCRYPTION) //For Gmail
         // Create the Mailer using your created Transport
         $this->mailer = new Swift_Mailer($this->transport);
-        $this->fromEmail = 'contact@heryravelojaona.fr';
+        $this->fromEmail = 'contact@jeanforteroche.test';
         $this->fromUser = 'Jean Forteroche';
 
     }

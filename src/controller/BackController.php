@@ -95,7 +95,7 @@ class BackController extends Controller
             }
             if(!$errors){
                 //save article in database
-                $this->articleDAO->addArticle($post);
+                $this->articleDAO->addArticle($post, $this->session->get('id'));
                 $this->session->set('addArticle', 'Article bien ajouté');
                 //publish article
                 if($post->get('submit')) {
