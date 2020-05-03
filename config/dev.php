@@ -8,4 +8,3 @@ const DB_HOST = 'mysql:host='.HOST.';dbname='.DB_NAME.';charset='.CHARSET;
 const DB_USER = 'root';
 const DB_PASS = '';
 
-// mailing

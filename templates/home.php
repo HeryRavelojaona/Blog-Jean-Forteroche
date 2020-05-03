@@ -79,13 +79,13 @@
         </section>
         <div class="page">
             <ul class="pagination">
-                <li class="disabled"><a href="#">&laquo;</a></li>
+                <li class="disabled"><a href="../public/index.php?page=<?= htmlspecialchars($currentPage - 1) ;?>">&laquo;</a></li>
             <?php
                for($i=1; $i<=$nbPage; $i++){
                    echo '<li><a href="../public/index.php?page='.$i.'">'.$i.'</a></li>';
                 }
             ?>
-                <li><a href="#">&raquo;</a></li>
+                <li><a href="../public/index.php?page=<?= htmlspecialchars($currentPage + 1) ;?>">&raquo;</a></li>
             </ul>
         </div>
 

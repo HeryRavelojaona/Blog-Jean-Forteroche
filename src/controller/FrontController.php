@@ -12,26 +12,27 @@ class FrontController extends Controller
     {
         // Pagination
         $count =  (int) $this->articleDAO->countArticles();
-        if($get->get('page')){
-                $currentPage = $get->get('page');
-        }
-        else{
-            $currentPage = 1;
-        }
         $artPerPage = 4;
-        $start = ($currentPage - 1) * $artPerPage;
-        $limit = $start + $artPerPage; 
-        
+        $currentPage = 1;
         $nbPage = ceil($count/$artPerPage);
 
+        if($get->get('page')){
+           $page =  $get->get('page');
+            if(($page > 0) && ($page <=  $nbPage) )
+                $currentPage = $get->get('page');
+        }
         /**
         * @param int $start sql DESC LIMIT start
         * @param int $limit sql DESC LIMIT end
         */
+        $start = ($currentPage - 1) * $artPerPage;
+        $limit = $start + $artPerPage;
+
         $articles = $this->articleDAO->showArticles($start, $limit);
         return $this->view->render('home', [
             'articles' => $articles,
-            'nbPage' => $nbPage
+            'nbPage' => $nbPage,
+            'currentPage' => $currentPage
             ]);
         
     }

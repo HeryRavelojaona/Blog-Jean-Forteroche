@@ -28,8 +28,12 @@ class ArticleDAO extends DAO
          'status'=>0,
          'user_id'=>$userId
          ]);
-    } 
+    }
 
+    /**
+    * @param int $start sql DESC LIMIT start
+    * @param int $limit sql DESC LIMIT end
+    */
     public function showArticles($start, $limit)
     {
         //articles for one admin

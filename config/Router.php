@@ -64,10 +64,6 @@ class Router
                     $this->backController->addArticle($this->request->getPost());
                 }
             }
-            elseif(isset($page))
-            {
-                    $this->frontController->home($this->request->getGet());
-            }
             else {
                 $this->frontController->home($this->request->getGet());
             }
