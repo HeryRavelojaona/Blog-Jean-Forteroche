@@ -108,4 +108,19 @@ class FrontController extends Controller
         }
         return $this->view->render('login');
     }
+
+    public function article(Parameter $get)
+    {
+        if($get->get('articleId')){
+            $articleId =  $get->get('articleId');
+             if(($articleId > 1))
+                $article = $this->articleDAO->showArticle($articleId);
+                return $this->view->render('article',[
+                    'article' => $article
+                ]);
+         }
+    
+           
+        return $this->view->render('article');
+    }
 }

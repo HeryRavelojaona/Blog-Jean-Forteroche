@@ -32,7 +32,6 @@ class Router
                 if($route === 'register'){
                     $this->frontController->register($this->request->getPost());
                 }
-                
                 elseif($route === 'validateAccount'){
                     $this->frontController->validateAccount($this->request->getGet());
                 }
@@ -63,6 +62,10 @@ class Router
                 elseif($route === 'addarticle'){
                     $this->backController->addArticle($this->request->getPost());
                 }
+                elseif($route === 'article'){
+                    $this->frontController->article($this->request->getGet());
+                }
+
             }
             else {
                 $this->frontController->home($this->request->getGet());
