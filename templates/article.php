@@ -46,7 +46,6 @@
         <section id="content" class="container" >
              
             <div class="row">
- 
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billets">
                         <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?>  <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
@@ -56,6 +55,18 @@
                         </a>
                     </div>
                 </div>
-            
+                <?php
+            if($this->session->get('role')==="admin")
+            {
+        ?>
+         <a href="../public/index.php?route=administration" class="btn btn-info return">Retour</a>
+        <?php 
+            } else {
+        ?>
+        <a href="../public/index.php" class="btn btn-info return">Retour</a>
+        <?php 
+            } 
+        ?>
             </div>
         </section>
+        

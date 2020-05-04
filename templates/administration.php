@@ -36,11 +36,11 @@
                         <i class="fas fa-plus"></i>
                     </span>
                 </a>
-            <table  class="table table-striped table-bordered">
-                <thead>
-                    <legend>Gestion des articles</legend>
+            <table  class="table table-striped table-bordered table-hover tresponsive">
+                <legend>Gestion des articles</legend>
+                <thead class="thead-dark">
                     <tr>
-                        <th>Titre</th>
+                        <th >Titre</th>
                         <th>Date de création</th>
                         <th>Extrait</th>
                         <th>Status</th> 
@@ -48,28 +48,30 @@
                     </tr>
                 </thead>
                 <tbody>
-    <?php
-    foreach ($articles as $article)
-    {
-    ?>
+                <?php
+                    foreach ($articles as $article)
+                    {
+                ?>   
                     <tr>
                         <td><?= htmlspecialchars($article->getTitle());?></td>
-                        <td><?= htmlspecialchars($article->getCreatedAt());?></td>
-                        <td><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></td>
+                        <td class="date"><?= htmlspecialchars($article->getCreatedAt());?></td>
+                        <td class="extrait"><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></td>
                         <td><?= htmlspecialchars($article->getStatus());?></td>
-                        <td>aaa</td> 
+                        <td>
+                        <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info">Voir <i class="fas fa-eye"></i></a>
+                        </td> 
                     </tr>
     <?php
         }
     ?>  
                 </tbody>
-                <tfoot>
-                    <tr>
-                    <th>Titre</th>
-                        <th>Date de création</th>
-                        <th>Extrait</th>
-                        <th>Status</th> 
-                        <th>Actions</th> 
+                <tfoot class="thead-dark">
+                    <tr scope="row">
+                        <th scope="col">Titre</th>
+                        <th scope="col">Date de création</th>
+                        <th scope="col">Extrait</th>
+                        <th scope="col">Status</th> 
+                        <th scope="col">Actions</th> 
                     </tr>
                 </tfoot>
             </table>

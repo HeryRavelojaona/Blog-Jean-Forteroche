@@ -209,13 +209,15 @@ footer {
 }
 
 td a {
-    width: 100px;
     margin: 10px 0;
 }
 
-.table td, .table th {
-    vertical-align: middle;
+.table .date,
+.table .extrait {
+    font-size: 0.7em;
 }
+
+
 
 
 
