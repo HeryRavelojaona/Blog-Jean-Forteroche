@@ -25,7 +25,6 @@ class Router
     public function run()
     {  
         $route = $this->request->getGet()->get('route');
-        $page= $this->request->getGet()->get('page');
         try{
             if(isset($route))
             {
@@ -64,6 +63,9 @@ class Router
                 }
                 elseif($route === 'article'){
                     $this->frontController->article($this->request->getGet());
+                }
+                elseif($route === 'updatearticle'){
+                    $this->backController->updateArticle($this->request->getPost(), $this->request->getGet());
                 }
 
             }

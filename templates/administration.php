@@ -1,7 +1,7 @@
 <?php $this->title = 'Administration'; ?>      
 <header>
     <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
-        <a class="navbar-brand logo" href="default.html">Jean Forteroche</a>
+        <a class="navbar-brand logo" href="../public/index.php">Jean Forteroche</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -24,6 +24,7 @@
     <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
     <div class='caption'>
             <?= $this->session->show('addArticle'); ?>
+            <?= $this->session->show('updateArticle'); ?>
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>
@@ -58,7 +59,8 @@
                         <td class="extrait"><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></td>
                         <td><?= htmlspecialchars($article->getStatus());?></td>
                         <td>
-                        <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info">Voir <i class="fas fa-eye"></i></a>
+                        <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Voir <i class="fas fa-eye"></i></a>
+                        <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Modifier <i class="fas fa-exchange-alt"></i><a>
                         </td> 
                     </tr>
     <?php

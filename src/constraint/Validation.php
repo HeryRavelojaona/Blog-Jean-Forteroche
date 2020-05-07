@@ -21,6 +21,5 @@ class Validation
             $errors = $articleValidation->check($data);
             return $errors;
         }
-
     }
 }

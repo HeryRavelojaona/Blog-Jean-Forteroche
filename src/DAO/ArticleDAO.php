@@ -65,7 +65,7 @@ class ArticleDAO extends DAO
     }
 
 
-    public function showArticle(INT $articleId)
+    public function showArticle($articleId)
     {
         $sql = 'SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id WHERE article.id = '.$articleId.'';
         $result = $this->createQuery($sql);
@@ -73,5 +73,17 @@ class ArticleDAO extends DAO
         $article = $this->buildObject($article);
         $result->closeCursor();
         return $article;
+    }
+
+    public function updateArticle(Parameter $post, $articleId, $status)
+    {                       
+
+       $sql = "UPDATE article SET title=:title, content=:content, status=:status WHERE id=:id";
+        $this->createQuery($sql, 
+        ['title'=>$post->get('title'),
+         'content'=>$post->get('content'),
+         'status'=>$status,
+         'id'=>$articleId
+        ]);
     }
 }
