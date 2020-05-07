@@ -44,23 +44,23 @@ class ArticleValidation extends Validation
     private function checkTitle($name, $value)
     {
         if($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('title', $value);
+            return $this->constraint->notBlank('titre', $value);
         }
         if($this->constraint->minLength($name, $value, 2)) {
-            return $this->constraint->minLength('title', $value, 2);
+            return $this->constraint->minLength('billet', $value, 2);
         }
         if($this->constraint->maxLength($name, $value, 255)) {
-            return $this->constraint->maxLength('title', $value, 255);
+            return $this->constraint->maxLength('billet', $value, 255);
         }
     }
 
     private function checkContent($name, $value)
     {
         if($this->constraint->notBlank($name, $value)) {
-            return $this->constraint->notBlank('content', $value);
+            return $this->constraint->notBlank('billet', $value);
         }
         if($this->constraint->minLength($name, $value, 20)) {
-            return $this->constraint->minLength('content', $value, 20);
+            return $this->constraint->minLength('billet', $value, 20);
         }
     }
 }

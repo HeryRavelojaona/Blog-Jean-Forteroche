@@ -24,10 +24,12 @@
         <section id="header_img">
             <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
             <div class='caption'>
+        
                 <h1>Billet simple<br>pour l'Alaska</h1> 
             </div>   
         </section>
         <section id="description">
+        <?= var_dump($article->getTitle()); ?>
             <p>Création d'un nouvel article</p>
         </section>
         <section class="container">
@@ -35,10 +37,10 @@
                 <div class="bloc-content col-md-12">
                     <form class="form-billet form-group" action="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId()); ?>" method="post">
                         <label for="title" class="title-form">Titre</label>
-                        <input type="text" name="title" value="<?= htmlspecialchars($article->getTitle()); ?>" class="title-billet form-control">
+                        <input type="text" name="title" value="<?= isset($article) ? $article->getTitle(): 'ccc'; ?>" class="title-billet form-control">
                         <span class="form-error"><?= isset($errors['title']) ? $errors['title']: ''; ?></span>
                         <label for="content" class="title-form">Billet</label>
-                        <textarea name="content" class="billet form-control " ><?= htmlspecialchars($article->getContent()); ?></textarea>
+                        <textarea name="content" class="billet form-control " ><?= isset($article) ? $article->getContent(): 'dd'; ?></textarea>
                         <span class="form-error"><?= isset($errors['content']) ? $errors['content']: ''; ?></span>
                     <div class="row">
                         <input type="submit" class="btn btn-warning col-md-6 " name="save" id="save" value="Enregistrer">

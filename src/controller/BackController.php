@@ -111,7 +111,10 @@ class BackController extends Controller
                 header('Location: ../public/index.php?route=administration');
                 exit();
 
-            }
+            }/*
+            var_dump($_post);
+            var_dump($post);
+*/
             return $this->view->render('addarticle', [
                 'errors'=>$errors,
                 'post'=>$post
@@ -122,16 +125,17 @@ class BackController extends Controller
 
     public function updateArticle(Parameter $post, $get)
     {
+        
         if(!$get->get('articleId')){
             $this->errorController->errorNotFound();
         }
         else{
             $articleId = $get->get('articleId');
+            $article = $this->articleDAO->showArticle($articleId);
         }
         if($post->get('save') || $post->get('submit')) {
-            $errors = $this->validation->validate($post, 'Article');
+            $errors = $this->validation->validate($post, 'updateArticle');
             if(!$errors){
-                
                 if($post->get('save')){
                     $status = 0;
                     $session = 'Article mis à jour et bien enregistrer';
@@ -146,11 +150,12 @@ class BackController extends Controller
                 exit(); 
            }
             return $this->view->render('updatearticle', [
+                'article'=>$article,
                 'errors' => $errors
             ]);
         };
 
-        $article = $this->articleDAO->showArticle($articleId);
+        
         return $this->view->render('updatearticle',[
             'article' => $article
         ]);

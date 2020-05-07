@@ -36,10 +36,10 @@
                 <div class="bloc-content col-md-12">
                     <form class="form-billet form-group" action="../public/index.php?route=addarticle" method="post">
                         <label for="title" class="title-form">Titre</label>
-                        <input type="text" name="title" value="<?= isset($post);?>" class="title-billet form-control">
+                        <input type="text" name="title" value="<?= isset($post) ? $post->get('title') : '' ?>" class="title-billet form-control">
                         <span class="form-error"><?= isset($errors['title']) ? $errors['title']: ''; ?></span>
                         <label for="content" class="title-form">Billet</label>
-                        <textarea name="content" class="billet form-control "><?= isset($post);?></textarea>
+                        <textarea name="content" class="billet form-control "><?= isset($post) ? $post->get('content') : '' ?></textarea>
                         <span class="form-error"><?= isset($errors['content']) ? $errors['content']: ''; ?></span>
                     <div class="row">
                         <input type="submit" class="btn btn-warning col-md-6 " name="save" id="save" value="Enregistrer">
