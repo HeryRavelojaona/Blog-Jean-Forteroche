@@ -165,7 +165,7 @@ footer {
     margin: 10px auto;
 }
 
-.bloc-content textarea {
+.bloc-content > textarea {
     min-height: 400px;
     height: 400px;
     margin-bottom: 10px;
@@ -219,6 +219,16 @@ td a {
 .table .date,
 .table .extrait {
     font-size: 0.7em;
+}
+
+/*Post-form*/
+.post-comment {
+    text-align: center;
+    background-color: #050505;
+}
+
+.post-comment textarea {
+    height: 100px;
 }
 
 

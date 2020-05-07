@@ -73,6 +73,9 @@ class Router
                 elseif($route === 'publishOrnot'){
                     $this->backController->publishOrnotArticle($this->request->getGet());
                 }
+                elseif($route === 'addcomment'){
+                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet());
+                }
 
             }
             else {

@@ -8,6 +8,7 @@ use Blog\config\Mailing;
 use Blog\src\constraint\Validation;
 use Blog\src\DAO\UserDAO;
 use Blog\src\DAO\ArticleDAO;
+use Blog\src\DAO\CommentDAO;
 
 
 abstract class Controller
@@ -22,6 +23,7 @@ abstract class Controller
     protected $session;
     protected $validation;
     protected $mailing;
+    protected $commentDAO;
 
     public function __construct()
     {   
@@ -31,8 +33,10 @@ abstract class Controller
         $this->articleDAO = new ArticleDAO();
         $this->validation = new Validation();
         $this->mailing = new Mailing();
+        $this->commentDAO = new CommentDAO();
         $this->get = $this->request->getGet();
         $this->post = $this->request->getPost();
         $this->session = $this->request->getSession();
+        
     }
 }

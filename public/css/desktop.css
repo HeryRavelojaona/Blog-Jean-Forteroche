@@ -26,6 +26,10 @@
 }
 
 /*Pagination*/
+.post-comment textarea {
+    height: 200px;
+}
+
 .page {
 
     display: flex;

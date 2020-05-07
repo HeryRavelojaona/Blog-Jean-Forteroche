@@ -125,4 +125,30 @@ class FrontController extends Controller
            
         return $this->view->render('article');
     }
+
+    public function addComment(Parameter $post, $get)
+    {
+        if($get->get('articleId')){
+                $articleId =  $get->get('articleId');
+        }
+        if($post->get('submit')){
+            $errors = $this->validation->validate($post, 'comment');
+            if(!$errors){
+                $comment = $this->commentDAO->addComment($post, $articleId, $this->session->get('id'));
+                $this->session->set('add_comment',' Commentaire bien ajouté');
+                header('Location: ../public/index.php?route=article&articleId='.$articleId.'');
+                exit();
+
+            }
+            $article = $this->articleDAO->showArticle($articleId);
+            return $this->view->render('article',[
+                    'article'=>$article,
+                    'post' => $post,
+                    'errors'=>$errors
+                ]);
+         }
+    
+        header('Location: ../public/index.php?route=article&articleId='.$articleId.'');
+        exit();
+    }
 }

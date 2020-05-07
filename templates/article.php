@@ -40,6 +40,7 @@
         <section id="header_img">
             <img src="images/book.jpg"class="img-fluid imgtest"/>
             <div class='caption'>
+                <?= $this->session->show('add_comment'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
             </div>   
         </section>
@@ -50,11 +51,11 @@
                     <div class="bloc-billets">
                         <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?>  <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
                         <p class="billet"><?= htmlspecialchars($article->getContent());?></p>
-                     
-                            <i class="fas fa-book-open"></i>
-                        </a>
                     </div>
+
+                    <?php if($this->session->get('pseudo')){include ('post_comment.php');}; ?>
                 </div>
+                
                 <?php
             if($this->session->get('role')==="admin")
             {
