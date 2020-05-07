@@ -67,6 +67,12 @@ class Router
                 elseif($route === 'updatearticle'){
                     $this->backController->updateArticle($this->request->getPost(), $this->request->getGet());
                 }
+                elseif($route === 'deletearticle'){
+                    $this->backController->deleteArticle($this->request->getGet());
+                }
+                elseif($route === 'publishOrnot'){
+                    $this->backController->publishOrnotArticle($this->request->getGet());
+                }
 
             }
             else {

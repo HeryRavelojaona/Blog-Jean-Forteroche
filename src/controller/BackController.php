@@ -164,4 +164,42 @@ class BackController extends Controller
             'article' => $article
         ]);
     }
+
+    public function deleteArticle(Parameter $get)
+    {
+        if($get->get('articleId')){
+            $articleId = $get->get('articleId');
+            $this->articleDAO->deleteArticle($articleId);
+            $this->session->set('delete_article', 'Votre article a bien été supprimé');
+            header('Location: ../public/index.php?route=administration');
+            exit();
+        }
+
+        $this->session->set('delete_article', 'probleme de suppression');
+        header('Location: ../public/index.php?route=administration');
+        exit(); 
+        
+    }
+
+    public function publishOrnotArticle(Parameter $get)
+    {
+        if($get->get('articleId')){
+            $articleId= $get->get('articleId');
+            if($get->get('action') === 'retiré'){
+                $status = 0;
+                $this->articleDAO->publishOrnotArticle($articleId, $status);
+                $this->session->set('status_article', 'Votre article a bien été retiré');
+            }
+            if($get->get('action') === 'publié'){
+                $status = 1;
+                $this->articleDAO->publishOrnotArticle($articleId, $status);
+                $this->session->set('status_article', 'Votre article a bien été publié');
+            }
+            
+            header('Location: ../public/index.php?route=administration');
+                    exit();
+        
+        }
+        $this->errorController->errorNotFound(); 
+    }
 }
