@@ -25,6 +25,7 @@
     <div class='caption'>
             <?= $this->session->show('addArticle'); ?>
             <?= $this->session->show('updateArticle'); ?>
+            <?= $this->session->show('delete_article'); ?>
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>
@@ -60,7 +61,8 @@
                         <td><?= htmlspecialchars($article->getStatus());?></td>
                         <td>
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Voir <i class="fas fa-eye"></i></a>
-                        <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Modifier <i class="fas fa-exchange-alt"></i><a>
+                        <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-warning btnAdmin">Modifier <i class="fas fa-exchange-alt"></i><a>
+                        <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i><a>
                         </td> 
                     </tr>
     <?php

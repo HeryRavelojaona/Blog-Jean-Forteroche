@@ -15,6 +15,10 @@ class BackController extends Controller
     {
         if($post->get('submit')) {
             $errors = $this->validation->validate($post, 'updatePassword');
+            if($post->get('password')!= $post->get('samePassword') ){
+                $errors['password'] = 'Mots de passes non identiques';
+                $errors['samePassword'] = 'Mots de passes non identiques';
+            }
             if(!$errors){
                 $this->userDAO->updatePassword($post, $this->session->get('mail'));
                 $this->session->set('update_password', 'Le mot de passe a été mis à jour');
@@ -22,7 +26,7 @@ class BackController extends Controller
                 exit(); 
             }
 
-            return $this->view->render('updatePassword',['errors' => $errors['password']]);  
+            return $this->view->render('updatePassword',['errors' => $errors]);  
             
         }
         return $this->view->render('updatePassword');
@@ -159,5 +163,21 @@ class BackController extends Controller
         return $this->view->render('updatearticle',[
             'article' => $article
         ]);
+    }
+
+    public function deleteArticle(Parameter $get)
+    {
+        if($get->get('articleId')){
+            $articleId = $get->get('articleId');
+            $this->articleDAO->deleteArticle($articleId);
+            $this->session->set('delete_article', 'Votre article a bien été supprimé');
+            header('Location: ../public/index.php?route=administration');
+            exit();
+        }
+
+        $this->session->set('delete_article', 'probleme de suppression');
+        header('Location: ../public/index.php?route=administration');
+        exit(); 
+        
     }
 }

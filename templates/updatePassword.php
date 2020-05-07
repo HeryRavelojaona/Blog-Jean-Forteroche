@@ -34,7 +34,14 @@
                         <label for="pass" class="col-lg-2 control-label">Nouveau mot de passe</label>
                         <div class="col-lg-10 desktop-form">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
-                        <span class="form-error"><?= isset($errors) ? $errors: ''; ?></span>
+                        <span class="form-error"><?= isset($errors['password']) ? $errors['password'] : ''; ?></span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="samePassword" class="col-lg-2 control-label">Vérification mot de passe</label>
+                        <div class="col-lg-10 desktop-form">
+                        <input type="password" class="form-control" id="checkPass" name="samePassword" placeholder="Vérification mot de passe">
+                            <span class="form-error"><?= isset($errors['samePassword']) ? $errors['samePassword'] : ''; ?></span>
                         </div>
                     </div>
                     <div class="form-group ">
