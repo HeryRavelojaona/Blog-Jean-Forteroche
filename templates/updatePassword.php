@@ -34,11 +34,7 @@
                         <label for="pass" class="col-lg-2 control-label">Nouveau mot de passe</label>
                         <div class="col-lg-10 desktop-form">
                         <input type="password" class="form-control" id="password" name="password" placeholder="Mot de passe">
-<<<<<<< HEAD
-                        <span class="form-error"><?= isset($errors['password']) ? $errors['password']: ''; ?></span>
-=======
                         <span class="form-error"><?= isset($errors['password']) ? $errors['password'] : ''; ?></span>
->>>>>>> manageArticles
                         </div>
                     </div>
                     <div class="form-group">
