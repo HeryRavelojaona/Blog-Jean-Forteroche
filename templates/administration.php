@@ -26,6 +26,7 @@
             <?= $this->session->show('addArticle'); ?>
             <?= $this->session->show('updateArticle'); ?>
             <?= $this->session->show('delete_article'); ?>
+            <?= $this->session->show('status_article'); ?>
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>
@@ -52,17 +53,24 @@
                 <tbody>
                 <?php
                     foreach ($articles as $article)
-                    {
+                    {   
+                        if($article->getStatus()== 0){$action = 'publié';
+                                                    $status = 'Brouillon';
+                                                    $color= 'secondary';
+                        }else if($article->getStatus()== 1){$action = 'retiré';
+                                                            $status = 'Publié';
+                                                             $color= 'primary';}
                 ?>   
                     <tr>
                         <td><?= htmlspecialchars($article->getTitle());?></td>
                         <td class="date"><?= htmlspecialchars($article->getCreatedAt());?></td>
                         <td class="extrait"><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></td>
-                        <td><?= htmlspecialchars($article->getStatus());?></td>
+                        <td><?= htmlspecialchars($status);?></td>
                         <td>
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Voir <i class="fas fa-eye"></i></a>
                         <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-warning btnAdmin">Modifier <i class="fas fa-exchange-alt"></i><a>
-                        <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i><a>
+                        <a href="../public/index.php?route=publishOrnot&articleId=<?= htmlspecialchars($article->getId());?>&action=<?= htmlspecialchars($action);?>" class="btn btn-<?= htmlspecialchars($color);?> btnAdmin"><?= htmlspecialchars($action);?><a>
+                        <a href="../public/index.php?route=deleteharticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i><a>
                         </td> 
                     </tr>
     <?php

@@ -92,4 +92,14 @@ class ArticleDAO extends DAO
         $sql = 'DELETE FROM article WHERE id = ?';
         $this->createQuery($sql, [$articleId]);
     }
+
+    public function publishOrnotArticle($articleId, $status)
+    {                       
+       $sql = "UPDATE article SET status=:status WHERE id=:id";
+        $this->createQuery($sql, 
+        [
+         'status'=>$status,
+         'id'=>$articleId
+        ]);
+    }
 }

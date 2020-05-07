@@ -180,4 +180,26 @@ class BackController extends Controller
         exit(); 
         
     }
+
+    public function publishOrnotArticle(Parameter $get)
+    {
+        if($get->get('articleId')){
+            $articleId= $get->get('articleId');
+            if($get->get('action') === 'retiré'){
+                $status = 0;
+                $this->articleDAO->publishOrnotArticle($articleId, $status);
+                $this->session->set('status_article', 'Votre article a bien été retiré');
+            }
+            if($get->get('action') === 'publié'){
+                $status = 1;
+                $this->articleDAO->publishOrnotArticle($articleId, $status);
+                $this->session->set('status_article', 'Votre article a bien été publié');
+            }
+            
+            header('Location: ../public/index.php?route=administration');
+                    exit();
+        
+        }
+        $this->errorController->errorNotFound(); 
+    }
 }

@@ -200,6 +200,10 @@ footer {
     color: #fff !important;
 }
 
+.btnAdmin {
+    width : 150px;
+}
+
 .h2adminView {
     margin-bottom: 10px;
 }
