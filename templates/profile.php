@@ -30,7 +30,6 @@
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billets">
                         <h3 class="title-billet">Pseudo: <?= $this->session->get('pseudo'); ?></h3>
-                        <p class="billet">Identifiant: <?= $this->session->get('id'); ?>
                         <p class="billet">Email: <?= $this->session->get('mail'); ?>
                         </p>
                         <a href="../public/index.php?route=updatePassword">Modifier votre mot de passe</a>
