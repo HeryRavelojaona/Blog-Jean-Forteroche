@@ -87,36 +87,81 @@ class BackController extends Controller
 
     public function administration()
     {
-        return $this->view->render('administration');
+        $start = 0;
+        $limit = 100;
+        $articles = $this->articleDAO->showArticles($start, $limit);
+        return $this->view->render('administration', [
+            'articles' => $articles,
+            ]);
+   
     }
 
     public function addArticle(Parameter $post)
     {
-        if($post->get('save') || $post->get('submit') ) {
+        if($post->get('save') || $post->get('submit')){
             $errors = $this->validation->validate($post, 'Article');
-            if(!$this->session->get('role') === 'admin'){
-                $errors = 'Accès interdit';
-            }
             if(!$errors){
                 //save article in database
-                $this->articleDAO->addArticle($post, $this->session->get('id'));
-                $this->session->set('addArticle', 'Article bien ajouté');
-                //publish article
-                if($post->get('submit')) {
-                    return $this->view->render('home');
+                if($post->get('save')){
+                    $status = 0;
+                    $this->session->set('addArticle', 'Article bien enregistrer');
+                }
+                elseif($post->get('submit')){
+                    $status = 1;
+                    $this->session->set('addArticle', 'Article publié');
                 }
 
+                $this->articleDAO->addArticle($post, $this->session->get('id'),$status);
                 header('Location: ../public/index.php?route=administration');
                 exit();
-            }
+
+            }/*
+            var_dump($_post);
+            var_dump($post);
+*/
             return $this->view->render('addarticle', [
-                'post' => $post,
-                'errors' => $errors
+                'errors'=>$errors,
+                'post'=>$post
             ]);
         }
         return $this->view->render('addarticle');
     }
 
+    public function updateArticle(Parameter $post, $get)
+    {
+        
+        if(!$get->get('articleId')){
+            $this->errorController->errorNotFound();
+        }
+        else{
+            $articleId = $get->get('articleId');
+            $article = $this->articleDAO->showArticle($articleId);
+        }
+        if($post->get('save') || $post->get('submit')) {
+            $errors = $this->validation->validate($post, 'updateArticle');
+            if(!$errors){
+                if($post->get('save')){
+                    $status = 0;
+                    $session = 'Article mis à jour et bien enregistrer';
+                }
+                elseif($post->get('submit')){
+                    $status = 1;
+                    $session = 'Article mis à jour et publié';
+                }
+                $this->articleDAO->updateArticle($post,$articleId, $status);
+                $this->session->set('updateArticle', $session);
+                header('Location: ../public/index.php?route=administration');
+                exit(); 
+           }
+            return $this->view->render('updatearticle', [
+                'article'=>$article,
+                'errors' => $errors
+            ]);
+        };
 
-
+        
+        return $this->view->render('updatearticle',[
+            'article' => $article
+        ]);
+    }
 }

@@ -19,13 +19,13 @@ class ArticleDAO extends DAO
         return $article;
     }
 
-    public function addArticle(Parameter $post, $userId)
+    public function addArticle(Parameter $post, $userId, $status)
     {  
         $sql = 'INSERT INTO article (title, content, created_at, status, user_id) VALUES (:title, :content, NOW(), :status, :user_id)';
         $this->createQuery($sql, 
         ['title'=>$post->get('title'),
          'content'=>$post->get('content'),
-         'status'=>0,
+         'status'=>$status,
          'user_id'=>$userId
          ]);
     }
@@ -33,13 +33,17 @@ class ArticleDAO extends DAO
     /**
     * @param int $start sql DESC LIMIT start
     * @param int $limit sql DESC LIMIT end
+    * @param boolean $published Publish or not
     */
-    public function showArticles($start, $limit)
+    public function showArticles($start,  $limit, $published = NULL)
     {
-        //articles for one admin
-        $sql = 'SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at DESC LIMIT '.$start.','.$limit.'';
-        //for all admins
-        //$sql = 'SELECT * FROM article ORDER BY article.created_at DESC';
+        if($published){
+            //articles for Front view
+            $sql = "SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article WHERE article.status =1 ORDER BY article.created_at DESC LIMIT ".$start.",".$limit.""; 
+        }else{
+            //for admin
+            $sql = "SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at DESC LIMIT ".$start.",".$limit."";
+        }
         $result = $this->createQuery($sql);
         $articles = [];
         foreach ($result as $row){
@@ -61,7 +65,7 @@ class ArticleDAO extends DAO
     }
 
 
-    public function showArticle(INT $articleId)
+    public function showArticle($articleId)
     {
         $sql = 'SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id WHERE article.id = '.$articleId.'';
         $result = $this->createQuery($sql);
@@ -71,6 +75,15 @@ class ArticleDAO extends DAO
         return $article;
     }
 
+    public function updateArticle(Parameter $post, $articleId, $status)
+    {                       
 
-
+       $sql = "UPDATE article SET title=:title, content=:content, status=:status WHERE id=:id";
+        $this->createQuery($sql, 
+        ['title'=>$post->get('title'),
+         'content'=>$post->get('content'),
+         'status'=>$status,
+         'id'=>$articleId
+        ]);
+    }
 }

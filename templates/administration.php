@@ -1,68 +1,82 @@
 <?php $this->title = 'Administration'; ?>      
-        <header>
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
-                <a class="navbar-brand logo" href="default.html">Jean Forteroche</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center " id="nav_menu">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../public/index.php">Accueil</a>
-                        </li>
-                        <li class="nav-item dropdown  active">
-                            <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Votre espace</a>
-                            <ul class="dropdown-menu" role="menu">
-                            <li><a href="../public/index.php?route=profile">Profil</a></li>
-                            <li><a href="../public/index.php?route=logout">Déconnexion</a></li>
-                        </li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
-        <section id="header_img">
-            <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
-            <div class='caption'>
-                 <?= $this->session->show('addArticle'); ?>
-                <h1>Billet simple<br>pour l'Alaska</h1> 
-            </div>   
-        </section>
-        <section class="container">
-            <div class="row">
-                <div class="bloc-content col-md-12">
-                <h2 class="h2adminView">Liste des articles 
-                        <a href="../public/index.php?route=addarticle" class="btn btn-success new-billet">Nouvelle article 
-                            <span>
-                                <i class="fas fa-plus"></i>
-                            </span>
-                        </a>
-                    <table  class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th> 
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td>
-                                </td> 
-                            </tr>
-                        </tbody>
-                        <tfoot>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th> 
-                            </tr>
-                        </tfoot>
-                    </table>
-                </div>
-            </div>
-        </section>
+<header>
+    <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
+        <a class="navbar-brand logo" href="../public/index.php">Jean Forteroche</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center " id="nav_menu">
+            <ul class="navbar-nav ">
+                <li class="nav-item">
+                    <a class="nav-link" href="../public/index.php">Accueil</a>
+                </li>
+                <li class="nav-item dropdown  active">
+                    <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Votre espace</a>
+                    <ul class="dropdown-menu" role="menu">
+                    <li><a href="../public/index.php?route=profile">Profil</a></li>
+                    <li><a href="../public/index.php?route=logout">Déconnexion</a></li>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<section id="header_img">
+    <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
+    <div class='caption'>
+            <?= $this->session->show('addArticle'); ?>
+            <?= $this->session->show('updateArticle'); ?>
+        <h1>Billet simple<br>pour l'Alaska</h1> 
+    </div>   
+</section>
+<section class="container">
+    <div class="row">
+        <div class="bloc-content col-md-12">
+        <h2 class="h2adminView">Liste des articles 
+                <a href="../public/index.php?route=addarticle" class="btn btn-success new-billet">Nouvelle article 
+                    <span>
+                        <i class="fas fa-plus"></i>
+                    </span>
+                </a>
+            <table  class="table table-striped table-bordered table-hover tresponsive">
+                <legend>Gestion des articles</legend>
+                <thead class="thead-dark">
+                    <tr>
+                        <th >Titre</th>
+                        <th>Date de création</th>
+                        <th>Extrait</th>
+                        <th>Status</th> 
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($articles as $article)
+                    {
+                ?>   
+                    <tr>
+                        <td><?= htmlspecialchars($article->getTitle());?></td>
+                        <td class="date"><?= htmlspecialchars($article->getCreatedAt());?></td>
+                        <td class="extrait"><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></td>
+                        <td><?= htmlspecialchars($article->getStatus());?></td>
+                        <td>
+                        <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Voir <i class="fas fa-eye"></i></a>
+                        <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Modifier <i class="fas fa-exchange-alt"></i><a>
+                        </td> 
+                    </tr>
+    <?php
+        }
+    ?>  
+                </tbody>
+                <tfoot class="thead-dark">
+                    <tr scope="row">
+                        <th scope="col">Titre</th>
+                        <th scope="col">Date de création</th>
+                        <th scope="col">Extrait</th>
+                        <th scope="col">Status</th> 
+                        <th scope="col">Actions</th> 
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>

@@ -9,11 +9,14 @@ class View
     private $title;
     private $request;
     private $session;
+    private $post;
+
 
     public function __construct()
     {
         $this->request = new Request();
         $this->session = $this->request->getSession();
+        $this->post = $this->request->getPost();
     }
 
     public function render($template, $data = [])
@@ -23,7 +26,8 @@ class View
         $view = $this->renderFile('../templates/base.php', [
             'title' => $this->title,
             'content' => $content,
-            'session' => $this->session
+            'session' => $this->session,
+            'post'=> $this->post
         ]);
         echo $view;
     }
