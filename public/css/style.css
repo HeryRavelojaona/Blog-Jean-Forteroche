@@ -220,16 +220,46 @@ td a {
 .table .extrait {
     font-size: 0.7em;
 }
-
+/*comment*/
 /*Post-form*/
 .post-comment {
     text-align: center;
     background-color: #050505;
+    margin: 30px;
+    padding: 15px;
 }
 
 .post-comment textarea {
     height: 100px;
+    width: 50%;
+    margin: 10px auto;
 }
+
+/*viewComment*/
+.comments {
+    border: 5px;
+    border: 1px solid;
+    overflow: scroll;
+    min-height: 200px;
+}
+.section-title {
+    text-align: center;
+    background-color: grey;
+    color: #fff;
+    
+}
+.comments .comments-header {
+    text-align: center;
+    border-bottom: 1px solid #31AFD4 ;
+    margin-bottom: 5px;
+}
+.user-comment {
+    margin: 20px;
+    padding: 15px;
+    border: 1px solid #31AFD4 ;
+    border-radius: 3px;
+}
+
 
 
 

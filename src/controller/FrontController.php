@@ -117,13 +117,22 @@ class FrontController extends Controller
             $articleId =  $get->get('articleId');
              if(($articleId > 1))
                 $article = $this->articleDAO->showArticle($articleId);
+                $comments = $this->commentDAO->showComments($articleId);
+                //add user pseudo with his Id
+                foreach($comments as $comment){
+                    $userId = $comment->getUserId();
+                    $pseudo = $this->userDAO->getPseudo($userId);
+                }
+                
                 return $this->view->render('article',[
-                    'article' => $article
+                    'article' => $article,
+                    'comments' => $comments,
+                    'pseudo'=>$pseudo
                 ]);
          }
     
            
-        return $this->view->render('article');
+         $this->errorController->errorNotFound();
     }
 
     public function addComment(Parameter $post, $get)

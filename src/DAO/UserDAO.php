@@ -88,4 +88,13 @@ class UserDAO extends DAO
         $sql = 'DELETE FROM user WHERE mail = ?';
         $this->createQuery($sql, [$mail]);
     }
+
+    public function getPseudo($userId)
+    {
+        $sql = 'SELECT pseudo FROM user WHERE id = :id';
+        $result = $this->createQuery($sql, ['id'=>$userId]);
+        $pseudo = $result->fetchColumn();
+   
+        return $pseudo;
+    }
 }

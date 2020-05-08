@@ -45,15 +45,33 @@
             </div>   
         </section>
         <section id="content" class="container" >
-             
             <div class="row">
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billets">
                         <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?>  <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
                         <p class="billet"><?= htmlspecialchars($article->getContent());?></p>
                     </div>
-
                     <?php if($this->session->get('pseudo')){include ('post_comment.php');}; ?>
+            
+                    <div class="comments">
+                        <p class="section-title">Commentaires:</p>  
+            <?php
+               
+                foreach ($comments as $comment)
+                {
+            ?>
+                        <div class="user-comment">
+                            <div class="comments-header">
+                                <span class="pseudo">De : <?= isset($comment) ? htmlspecialchars($pseudo):''; ?> </span>
+                                <span class="date">Le : <?= isset($comment) ? htmlspecialchars($comment->getCreatedAt()) :'';?></span>
+                            </div>  
+                            <p class="comments-content"><?= isset($comment) ?  htmlspecialchars($comment->getContent()) : '';?></p>
+                        </div>
+            <?php
+                };
+            ?>      
+                    </div>
+            
                 </div>
                 
                 <?php
