@@ -252,4 +252,18 @@ class BackController extends Controller
             exit();
         }  
     }
+
+    public function changeRole(Parameter $get)
+    {
+        if($get->get('userId')){
+            $userId = $get->get('userId');
+            if($get->get('role') == 'user'){
+                $this->userDAO->changeRole($userId);
+                $this->session->set('user_role', 'Le role de l\'utilisateur a bien été modifié');
+                header('Location: ../public/index.php?route=administration');
+                exit();
+            }
+            
+        }  
+    }
 }

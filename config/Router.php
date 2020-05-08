@@ -88,6 +88,9 @@ class Router
                 elseif($route === 'deleteuser'){
                     $this->backController->deleteUser($this->request->getGet());
                 }
+                elseif($route === 'changerole'){
+                    $this->backController->changeRole($this->request->getGet());
+                }
 
             }
             else {
