@@ -25,6 +25,7 @@
             <div class='caption'>
                 <?= $this->session->show('update_password'); ?>
                 <?= $this->session->show('validate'); ?>
+                <?= $this->session->show('not_login'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1> 
                 <h2 >Bienvenue sur la page de connexion</h2>    
             </div>   
