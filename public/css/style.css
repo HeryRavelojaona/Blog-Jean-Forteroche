@@ -241,6 +241,7 @@ td a {
     border: 1px solid;
     overflow: scroll;
     min-height: 200px;
+    max-height: 400px;
 }
 .section-title {
     text-align: center;
