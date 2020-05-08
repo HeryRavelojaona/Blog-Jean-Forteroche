@@ -251,34 +251,30 @@ td a {
 }
 .comments .comments-header {
     text-align: center;
-    border-bottom: 1px solid #31AFD4 ;
     margin-bottom: 5px;
 }
 .user-comment {
     margin: 20px;
     padding: 15px;
+    background-color: #000;
     border: 1px solid #31AFD4 ;
+    color: #fff;
     border-radius: 3px;
 }
 
+.comments-content {
+    padding: 15px;
+    background-color: #fff;
+    color: black;
+    border: 1px solid #31AFD4 ;
+}
 
+.flag-comment {
+    color: #31AFD4;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.flaged-comment {
+    color: red;
+}
 
 

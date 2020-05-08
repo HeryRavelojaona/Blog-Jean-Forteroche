@@ -76,6 +76,9 @@ class Router
                 elseif($route === 'addcomment'){
                     $this->frontController->addComment($this->request->getPost(), $this->request->getGet());
                 }
+                elseif($route === 'flag'){
+                    $this->frontController->flag($this->request->getGet());
+                }
 
             }
             else {

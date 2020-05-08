@@ -128,6 +128,7 @@ class FrontController extends Controller
                 }else{
                     $userPseudo = NULL;
                 }
+
                 return $this->view->render('article',[
                     'article' => $article,
                     'comments' => $comments,
@@ -163,5 +164,17 @@ class FrontController extends Controller
     
         header('Location: ../public/index.php?route=article&articleId='.$articleId.'');
         exit();
+    }
+
+    public function flag($get)
+    {
+        if($get->get('commentId')){
+            $commentId = $get->get('commentId');
+
+            $this->commentDAO->flag($commentId);
+            $this->session->set('flag', 'Le commentaire a bien été signalé');
+            header('Location: ../public/index.php');
+        }
+        
     }
 }

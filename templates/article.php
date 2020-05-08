@@ -66,6 +66,18 @@
                                 <span class="date">Le : <?= isset($comment) ? htmlspecialchars($comment->getCreatedAt()) :'';?></span>
                             </div>  
                             <p class="comments-content"><?= isset($comment) ?  htmlspecialchars($comment->getContent()) : '';?></p>
+                    <?php
+                        if($comment->isFlag()) {
+                    ?>
+                        <p>Ce commentaire a déjà été signalé</p>
+                    <?php
+                    } else {
+                    ?>
+                        <a href="../public/index.php?route=flag&commentId=<?= $comment->getId(); ?>" class="flag-comment">Signaler le commentaire <i class="fas fa-flag"></i></a>
+                    <?php
+                    }
+                    ?>
+                           
                         </div>
             <?php
                 };
