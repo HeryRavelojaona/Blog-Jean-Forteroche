@@ -122,7 +122,7 @@
                         <td><?= htmlspecialchars($comment->getContent());?></td>
                         <td>
                         <a href="../public/index.php?route=deleteflagcomment&commentId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
-                        <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-warning btnAdmin">Désignaler <i class="fas fa-exchange-alt"></i><a>
+                        <a href="../public/index.php?route=unflag&commentId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-warning btnAdmin">Désignaler <i class="fas fa-exchange-alt"></i><a>
                         </td> 
                     </tr>
     <?php

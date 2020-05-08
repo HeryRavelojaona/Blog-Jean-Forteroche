@@ -82,6 +82,9 @@ class Router
                 elseif($route === 'deleteflagcomment'){
                     $this->backController->deleteFlagComment($this->request->getGet());
                 }
+                elseif($route === 'unflag'){
+                    $this->backController->unFlagComment($this->request->getGet());
+                }
 
             }
             else {

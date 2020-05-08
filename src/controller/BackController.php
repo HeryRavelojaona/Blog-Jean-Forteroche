@@ -228,4 +228,14 @@ class BackController extends Controller
         }
         $this->errorController->errorNotFound(); 
     }
+
+    public function unFlagComment($get)
+    {
+        if($get->get('commentId')){
+            $commentId = $get->get('commentId');
+            $this->commentDAO->unflagComment($commentId);
+            $this->session->set('unflag', 'Le commentaire a bien été désignalé');
+            header('Location: ../public/index.php');
+        } 
+    }
 }
