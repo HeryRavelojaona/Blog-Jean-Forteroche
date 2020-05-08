@@ -3,10 +3,21 @@
 namespace Blog\src\DAO;
 
 use Blog\config\Parameter;
+use Blog\src\model\User;
 
 
 class UserDAO extends DAO
 {
+    private function buildObject($row)
+    {
+        $user = new User();
+        $user->setId($row['id']);
+        $user->setPseudo($row['pseudo']);
+        $user->setRole($row['role']);
+        $user->setStatus($row['status']);
+        return $user;
+    }
+
     public function register(Parameter $post, $token)
     {  
         $token;
@@ -96,5 +107,18 @@ class UserDAO extends DAO
         $pseudo = $result->fetchColumn();
    
         return $pseudo;
+    }
+
+    public function getUsers()
+    {
+        $sql = 'SELECT user.id , user.pseudo, user.role, user.status FROM user ORDER BY id';
+        $result = $this->createQuery($sql);
+        $users = [];
+        foreach ($result as $row){
+            $userId = $row['id'];
+            $users[$userId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $users;
     }
 }

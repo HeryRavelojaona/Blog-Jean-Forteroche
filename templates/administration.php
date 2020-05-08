@@ -141,3 +141,53 @@
         </div>
     </div>
 </section>
+<!-- Section Userss-->
+<section class="container">
+    <div class="row">
+        <div class="bloc-content col-md-12">
+        <h2 class="h2adminView">Liste des utilisateurs
+                    <span>
+                    <i class="fas fa-users"></i>
+                    </span>
+                </a>
+        </h2>
+            <table  class="table table-striped table-bordered table-hover tresponsive">
+                <legend>Gestion des utilisateurs</legend>
+                <thead class="thead-dark">
+                    <tr>
+                        <th >Pseudo</th>
+                        <th>Status</th>
+                        <th>Role</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($users as $user)
+                    {   
+                ?>   
+                    <tr>
+                        <td><?= htmlspecialchars($user->getPseudo());?></td>
+                        <td><?= htmlspecialchars($user->getStatus());?></td>
+                        <td><?= htmlspecialchars($user->getRole());?></td>
+                        <td>
+                        <a href="../public/index.php?route=deleteflagcomment&commentId=<?= htmlspecialchars($user->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
+                        <a href="../public/index.php?route=unflag&commentId=<?= htmlspecialchars($user->getId());?>" class="btn btn-warning btnAdmin">Désignaler <i class="fas fa-exchange-alt"></i><a>
+                        </td> 
+                    </tr>
+    <?php
+        }
+    ?>  
+                </tbody>
+                <tfoot class="thead-dark">
+                    <tr scope="row">
+                        <th >Pseudo</th>
+                        <th>Date de création</th>
+                        <th>Role</th>
+                        <th>Actions</th> 
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>

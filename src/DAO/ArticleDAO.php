@@ -102,4 +102,14 @@ class ArticleDAO extends DAO
          'id'=>$articleId
         ]);
     }
+
+    public function getUser()
+    {
+        $sql = 'SELECT user.id , user.pseudo, user.role, user.status FROM user ORDER BY id';
+        $result = $this->createQuery($sql);
+        $user = $result->fetch();
+        $user = $this->buildObject($user);
+        $result->closeCursor();
+        return $user;
+    }
 }

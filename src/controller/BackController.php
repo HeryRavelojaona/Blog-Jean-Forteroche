@@ -98,6 +98,8 @@ class BackController extends Controller
                 }else{
                     $userPseudo = NULL;
                 }
+        //All Users
+        $users = $this->userDAO->getUsers();
                 
         $start = 0;
         $limit = 100;
@@ -105,7 +107,8 @@ class BackController extends Controller
         return $this->view->render('administration', [
             'articles' => $articles,
             'comments' => $comments,
-            'userPseudo' => $userPseudo
+            'userPseudo' => $userPseudo,
+            'users' => $users
             ]);
    
     }
