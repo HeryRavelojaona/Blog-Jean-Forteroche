@@ -85,6 +85,9 @@ class Router
                 elseif($route === 'unflag'){
                     $this->backController->unFlagComment($this->request->getGet());
                 }
+                elseif($route === 'deleteuser'){
+                    $this->backController->deleteUser($this->request->getGet());
+                }
 
             }
             else {

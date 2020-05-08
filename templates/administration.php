@@ -28,6 +28,7 @@
             <?= $this->session->show('delete_article'); ?>
             <?= $this->session->show('status_article'); ?>
             <?= $this->session->show('delete_comment'); ?>
+            <?= $this->session->show('delete_user'); ?>
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>
@@ -171,8 +172,14 @@
                         <td><?= htmlspecialchars($user->getStatus());?></td>
                         <td><?= htmlspecialchars($user->getRole());?></td>
                         <td>
-                        <a href="../public/index.php?route=deleteflagcomment&commentId=<?= htmlspecialchars($user->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
+                        <?php
+                        if($user->getRole()!= 'admin'){
+                         ?>
+                         <a href="../public/index.php?route=deleteuser&userId=<?= htmlspecialchars($user->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
                         <a href="../public/index.php?route=unflag&commentId=<?= htmlspecialchars($user->getId());?>" class="btn btn-warning btnAdmin">Désignaler <i class="fas fa-exchange-alt"></i><a>
+                         <?php
+                        } 
+                        ?>
                         </td> 
                     </tr>
     <?php

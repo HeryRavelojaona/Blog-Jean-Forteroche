@@ -241,4 +241,15 @@ class BackController extends Controller
             header('Location: ../public/index.php');
         } 
     }
+
+    public function deleteUser(Parameter $get)
+    {
+        if($get->get('userId')){
+            $userId = $get->get('userId');
+            $this->userDAO->deleteUser($userId);
+            $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
+            header('Location: ../public/index.php?route=administration');
+            exit();
+        }  
+    }
 }

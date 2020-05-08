@@ -121,4 +121,10 @@ class UserDAO extends DAO
         $result->closeCursor();
         return $users;
     }
+
+    public function deleteUser($userId)
+    {
+        $sql = 'DELETE FROM user WHERE id = ?';
+        $this->createQuery($sql, [$userId]);
+    }
 }
