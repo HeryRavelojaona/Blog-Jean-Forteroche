@@ -73,20 +73,29 @@
                     <?php
                     } else {
                     ?>
-                        <a href="../public/index.php?route=flag&commentId=<?= $comment->getId(); ?>" class="flag-comment">Signaler le commentaire <i class="fas fa-flag"></i></a>
+                        <a href="../public/index.php?route=flag&commentId=<?= $comment->getId(); ?>" class="flag-comment">Signaler <i class="fas fa-flag"></i></a>
                     <?php
                     }
                     ?>
+                    <?php
+            if($this->session->get('role')==="admin")
+            {
+            ?> 
+                <a href="../public/index.php?route=deletecomment&commentId=<?= $comment->getId(); ?>" class="flag-comment">Supprimer<i class="fas fa-flag"></i></a>
+            <?php 
+            } 
+            ?>
                            
                         </div>
             <?php
                 };
-            ?>      
+            ?>
+            
                     </div>
             
                 </div>
                 
-                <?php
+        <?php
             if($this->session->get('role')==="admin")
             {
         ?>
@@ -95,9 +104,8 @@
             } else {
         ?>
         <a href="../public/index.php" class="btn btn-info return">Retour</a>
-        <?php 
-            } 
-        ?>
+        <?php }
+         ?>
             </div>
         </section>
         

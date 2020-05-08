@@ -217,11 +217,11 @@ class BackController extends Controller
         $this->errorController->errorNotFound(); 
     }
 
-    public function deleteFlagComment(Parameter $get)
+    public function deleteComment(Parameter $get)
     {
         if($get->get('commentId')){
             $commentId = $get->get('commentId');
-            $this->commentDAO->deleteFlagComment($commentId);
+            $this->commentDAO->deleteComment($commentId);
             $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
             header('Location: ../public/index.php?route=administration');
             exit();

@@ -62,7 +62,7 @@ class CommentDAO extends DAO
         return $comments;
     }
 
-    public function deleteFlagComment($commentId)
+    public function deleteComment($commentId)
     {
         $sql = 'DELETE FROM comment WHERE id = ?';
         $this->createQuery($sql, [$commentId]);
