@@ -90,3 +90,53 @@
         </div>
     </div>
 </section>
+<!-- Section Comments-->
+<section class="container">
+    <div class="row">
+        <div class="bloc-content col-md-12">
+        <h2 class="h2adminView">Commentaires signalés
+                    <span>
+                        <i class="fas fa-flag"></i>
+                    </span>
+                </a>
+        </h2>
+            <table  class="table table-striped table-bordered table-hover tresponsive">
+                <legend>Gestion des commentaires</legend>
+                <thead class="thead-dark">
+                    <tr>
+                        <th >Auteur</th>
+                        <th>Date de création</th>
+                        <th>Message</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <?php
+                    foreach ($comments as $comment)
+                    {   
+                ?>   
+                    <tr>
+                        <td><?= htmlspecialchars($userPseudo);?></td>
+                        <td><?= htmlspecialchars($comment->getCreatedAt());?></td>
+                        <td><?= htmlspecialchars($comment->getContent());?></td>
+                        <td>
+                        <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
+                        <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-warning btnAdmin">Désignaler <i class="fas fa-exchange-alt"></i><a>
+                        </td> 
+                    </tr>
+    <?php
+        }
+    ?>  
+                </tbody>
+                <tfoot class="thead-dark">
+                    <tr scope="row">
+                        <th scope="col">Auteur</th>
+                        <th scope="col">Date de création</th>
+                        <th scope="col">Message</th>
+                        <th scope="col">Actions</th> 
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+</section>

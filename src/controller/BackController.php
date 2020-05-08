@@ -87,11 +87,25 @@ class BackController extends Controller
 
     public function administration()
     {
+        $comments = $this->commentDAO->getFlagComments();
+                //add user pseudo with his Id
+                foreach($comments as $comment){
+                    $userId = $comment->getUserId();
+                    $pseudo = $this->userDAO->getPseudo($userId);
+                }
+                if(!empty($pseudo)){
+                    $userPseudo = $pseudo;
+                }else{
+                    $userPseudo = NULL;
+                }
+                
         $start = 0;
         $limit = 100;
         $articles = $this->articleDAO->showArticles($start, $limit);
         return $this->view->render('administration', [
             'articles' => $articles,
+            'comments' => $comments,
+            'userPseudo' => $userPseudo
             ]);
    
     }

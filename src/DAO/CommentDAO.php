@@ -49,5 +49,18 @@ class CommentDAO extends DAO
         $this->createQuery($sql, [1, $commentId]);
     }
 
+    public function getFlagComments()
+    {
+        $sql = 'SELECT id, content, created_at, flag, article_id, user_id FROM comment WHERE flag = ? ORDER BY id DESC';
+        $result = $this->createQuery($sql, [1]);
+        $comments = [];
+        foreach ($result as $row) {
+            $commentId = $row['id'];
+            $comments[$commentId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $comments;
+    }
+
 
 }
