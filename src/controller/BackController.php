@@ -216,4 +216,16 @@ class BackController extends Controller
         }
         $this->errorController->errorNotFound(); 
     }
+
+    public function deleteFlagComment(Parameter $get)
+    {
+        if($get->get('commentId')){
+            $commentId = $get->get('commentId');
+            $this->commentDAO->deleteFlagComment($commentId);
+            $this->session->set('delete_comment', 'Le commentaire a bien été supprimé');
+            header('Location: ../public/index.php?route=administration');
+            exit();
+        }
+        $this->errorController->errorNotFound(); 
+    }
 }

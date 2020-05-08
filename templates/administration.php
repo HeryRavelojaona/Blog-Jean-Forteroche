@@ -27,6 +27,7 @@
             <?= $this->session->show('updateArticle'); ?>
             <?= $this->session->show('delete_article'); ?>
             <?= $this->session->show('status_article'); ?>
+            <?= $this->session->show('delete_comment'); ?>
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>
@@ -120,7 +121,7 @@
                         <td><?= htmlspecialchars($comment->getCreatedAt());?></td>
                         <td><?= htmlspecialchars($comment->getContent());?></td>
                         <td>
-                        <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
+                        <a href="../public/index.php?route=deleteflagcomment&commentId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
                         <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-warning btnAdmin">Désignaler <i class="fas fa-exchange-alt"></i><a>
                         </td> 
                     </tr>
