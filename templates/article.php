@@ -62,7 +62,7 @@
             ?>
                         <div class="user-comment">
                             <div class="comments-header">
-                                <span class="pseudo">De : <?= isset($comment) ? htmlspecialchars($pseudo):''; ?> </span>
+                                <span class="pseudo">De : <?= isset($userPseudo) ? htmlspecialchars($userPseudo):''; ?> </span>
                                 <span class="date">Le : <?= isset($comment) ? htmlspecialchars($comment->getCreatedAt()) :'';?></span>
                             </div>  
                             <p class="comments-content"><?= isset($comment) ?  htmlspecialchars($comment->getContent()) : '';?></p>

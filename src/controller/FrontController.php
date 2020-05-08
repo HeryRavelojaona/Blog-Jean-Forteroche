@@ -123,11 +123,15 @@ class FrontController extends Controller
                     $userId = $comment->getUserId();
                     $pseudo = $this->userDAO->getPseudo($userId);
                 }
-                
+                if(!empty($pseudo)){
+                    $userPseudo = $pseudo;
+                }else{
+                    $userPseudo = NULL;
+                }
                 return $this->view->render('article',[
                     'article' => $article,
                     'comments' => $comments,
-                    'pseudo'=>$pseudo
+                    'userPseudo'=>$userPseudo
                 ]);
          }
     
