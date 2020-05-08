@@ -29,6 +29,7 @@
             <?= $this->session->show('status_article'); ?>
             <?= $this->session->show('delete_comment'); ?>
             <?= $this->session->show('delete_user'); ?>
+            <?= $this->session->show('delete_impossible'); ?>
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>

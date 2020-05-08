@@ -246,10 +246,17 @@ class BackController extends Controller
     {
         if($get->get('userId')){
             $userId = $get->get('userId');
+            if($get->get('role')=='user'){
             $this->userDAO->deleteUser($userId);
             $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
             header('Location: ../public/index.php?route=administration');
             exit();
+            }else{
+                $this->session->set('delete_impossible', 'Impossible de supprimé un administrateur');
+                header('Location: ../public/index.php?route=administration');
+                exit();
+            }
+            
         }  
     }
 
