@@ -167,7 +167,6 @@ footer {
 
 .bloc-content > textarea {
     min-height: 400px;
-    height: 400px;
     margin-bottom: 10px;
 }
 
@@ -219,6 +218,10 @@ td a {
 .table .date,
 .table .extrait {
     font-size: 0.7em;
+}
+
+#admintext {
+    height: 700px !important;
 }
 /*comment*/
 /*Post-form*/

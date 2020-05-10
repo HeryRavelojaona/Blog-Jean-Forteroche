@@ -39,7 +39,7 @@
                         <input type="text" name="title" value="<?= isset($post) ? $post->get('title') : '' ?>" class="title-billet form-control">
                         <span class="form-error"><?= isset($errors['title']) ? $errors['title']: ''; ?></span>
                         <label for="content" class="title-form">Billet</label>
-                        <textarea name="content" class="billet form-control "><?= isset($post) ? $post->get('content') : '' ?></textarea>
+                        <textarea id="admintext" name="content" class="billet form-control "><?= isset($post) ? $post->get('content') : '' ?></textarea>
                         <span class="form-error"><?= isset($errors['content']) ? $errors['content']: ''; ?></span>
                     <div class="row">
                         <input type="submit" class="btn btn-warning col-md-6 " name="save" id="save" value="Enregistrer">
