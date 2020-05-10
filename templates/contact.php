@@ -5,14 +5,14 @@
             <div class="form-group">
                 <label for="inputEmail" class="col-lg-2 control-label">Email</label>
                 <div class="col-lg-10 desktop-form">
-                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="mail">
+                <input type="text" class="form-control" id="inputEmail" placeholder="Email" name="mail" value="<?= isset($this->session) ? $this->session->get('mail') : ''; ?>">
                 <span class="form-error"><?= isset($errors['mail']) ? $errors['mail'] : ''; ?></span>
                 </div>
             </div>
             <div class="form-group">
                 <label for="pseudo" class="col-lg-2 control-label">Nom/pseudo</label>
                 <div class="col-lg-10 desktop-form">
-                <input type="text" class="form-control" id="pseudo" placeholder="Nom/pseudo" name="pseudo">
+                <input type="text" class="form-control" id="pseudo" placeholder="Nom/pseudo" name="pseudo" value="<?= isset($this->session) ? $this->session->get('pseudo') : ''; ?>">
                 <span class="form-error"><?= isset($errors['pseudo']) ? $errors['pseudo'] : ''; ?></span>
                 </div>
             </div>
