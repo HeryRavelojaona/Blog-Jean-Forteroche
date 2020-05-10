@@ -71,10 +71,8 @@ class FrontController extends Controller
 
     public function validateAccount(Parameter $get)
     {
-        /*if($this->userDAO->checkAccount($get) == 1){
-            $errors = 'Votre compte est déja activé';
-        }*/
-        if(!$errors){
+        
+        if($get){
             $this->userDAO->validateAccount($get);
             $this->session->set('validate', 'Votre compte est bien validé');
             header('Location: ../public/index.php');
