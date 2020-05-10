@@ -68,4 +68,30 @@ class Mailing
         // Send the message
         $result = $this->mailer->send($message);
     }
+
+    public function contact($post)
+    {
+        $mail = $post->get('mail');
+        $pseudo = $post->get('pseudo');
+        $content = $post->get('content');
+        var_dump($post);
+        $subject = 'Message de votre site';
+        $body = '<!DOCTYPE html>
+                        <html>
+                            <head>
+                                <title>Message</title>
+                            </head>
+                            <body style="text-align:center">
+                                '.$content.'<br/>
+                                '.$mail.' 
+                            </body>
+                        </html>';
+        $message = (new Swift_Message($subject))
+        ->setFrom([$mail => $pseudo])
+         ->setTo([$this->fromEmail])
+        ->setBody($body, 'text/html');
+
+        // Send the message
+        $result = $this->mailer->send($message);
+    }
 }

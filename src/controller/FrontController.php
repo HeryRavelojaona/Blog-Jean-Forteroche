@@ -168,10 +168,28 @@ class FrontController extends Controller
     {
         if($get->get('commentId')){
             $commentId = $get->get('commentId');
-
             $this->commentDAO->flag($commentId);
             $this->session->set('flag', 'Le commentaire a bien été signalé');
             header('Location: ../public/index.php');
+        }
+        
+    }
+
+    public function contact($post)
+    {
+        if($post->get('submit')){
+            $errors = $this->validation->validate($post, 'contact');
+            if(!$errors){
+                $this->mailing->contact($post);
+                $this->session->set('contact',' Message bien envoyé');
+                header('Location: ../public/index.php');
+                exit();
+
+            }
+            return $this->view->render('contact',[
+                    'post' => $post,
+                    'errors'=>$errors
+                ]);
         }
         
     }

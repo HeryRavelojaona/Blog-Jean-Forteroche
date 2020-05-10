@@ -37,6 +37,31 @@ class Router
                 elseif($route === 'login'){
                     $this->frontController->login($this->request->getPost());
                 }
+                elseif($route === 'article'){
+                    $this->frontController->article($this->request->getGet());
+                }
+                elseif($route === 'addcomment'){
+                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet());
+                }
+                elseif($route === 'flag'){
+                    $this->frontController->flag($this->request->getGet());
+                }
+                elseif($route === 'contact'){
+                    $this->frontController->contact($this->request->getPost());
+                }
+                //Backcontrol
+                elseif($route === 'deletecomment'){
+                    $this->backController->deleteComment($this->request->getGet());
+                }
+                elseif($route === 'unflag'){
+                    $this->backController->unFlagComment($this->request->getGet());
+                }
+                elseif($route === 'deleteuser'){
+                    $this->backController->deleteUser($this->request->getGet());
+                }
+                elseif($route === 'changerole'){
+                    $this->backController->changeRole($this->request->getGet());
+                }
                 elseif($route === 'profile'){
                     $this->backController->profile();
                 }
@@ -61,9 +86,6 @@ class Router
                 elseif($route === 'addarticle'){
                     $this->backController->addArticle($this->request->getPost());
                 }
-                elseif($route === 'article'){
-                    $this->frontController->article($this->request->getGet());
-                }
                 elseif($route === 'updatearticle'){
                     $this->backController->updateArticle($this->request->getPost(), $this->request->getGet());
                 }
@@ -72,24 +94,6 @@ class Router
                 }
                 elseif($route === 'publishOrnot'){
                     $this->backController->publishOrnotArticle($this->request->getGet());
-                }
-                elseif($route === 'addcomment'){
-                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet());
-                }
-                elseif($route === 'flag'){
-                    $this->frontController->flag($this->request->getGet());
-                }
-                elseif($route === 'deletecomment'){
-                    $this->backController->deleteComment($this->request->getGet());
-                }
-                elseif($route === 'unflag'){
-                    $this->backController->unFlagComment($this->request->getGet());
-                }
-                elseif($route === 'deleteuser'){
-                    $this->backController->deleteUser($this->request->getGet());
-                }
-                elseif($route === 'changerole'){
-                    $this->backController->changeRole($this->request->getGet());
                 }
 
             }

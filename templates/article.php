@@ -108,4 +108,6 @@
          ?>
             </div>
         </section>
+        <!--Include form contact-->
+        <?php include ('contact.php'); ?>
         

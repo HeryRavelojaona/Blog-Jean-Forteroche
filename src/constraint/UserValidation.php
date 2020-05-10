@@ -39,6 +39,10 @@ class UserValidation extends Validation
             $error = $this->checkPass($name, $value );
             $this->addError($name, $error);
         }
+        elseif ($name === 'content') {
+            $error = $this->checkContent($name, $value);
+            $this->addError($name, $error);
+        }
   
     }
 
@@ -94,6 +98,16 @@ class UserValidation extends Validation
         }
         if($this->constraint->maxLength($name, $value, 255)) {
             return $this->constraint->maxLength('samePassword', $value, 255);
+        }
+    }
+
+    private function checkContent($name, $value)
+    {
+        if($this->constraint->notBlank($name, $value)) {
+            return $this->constraint->notBlank('Message', $value);
+        }
+        if($this->constraint->minLength($name, $value, 10)) {
+            return $this->constraint->minLength('Message', $value, 10);
         }
     }
 

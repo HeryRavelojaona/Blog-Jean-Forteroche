@@ -49,6 +49,7 @@
                 <?= $this->session->show('delete_account'); ?>
                 <?= $this->session->show('validate'); ?>
                 <?= $this->session->show('flag'); ?>
+                <?= $this->session->show('contact'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
             </div>   
         </section>
@@ -89,4 +90,6 @@
                 <li><a href="../public/index.php?page=<?= htmlspecialchars($currentPage + 1) ;?>">&raquo;</a></li>
             </ul>
         </div>
+        <!--Include form contact-->
+        <?php include ('contact.php'); ?>
 

@@ -31,5 +31,10 @@ class Validation
             $errors = $commentValidation->check($data);
             return $errors;
         }
+        elseif($name === 'contact') {
+            $userValidation = new UserValidation();
+            $errors = $userValidation->check($data);
+            return $errors;
+        }
     }
 }
