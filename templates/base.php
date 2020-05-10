@@ -33,6 +33,8 @@
             crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" ></script>
         <script src="https://cdn.tiny.cloud/1/x34paag6wieet4xq5hwhj0zakt8qjxa9hpmq1btsb5vzelp8/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script>
+        <script src="https://unpkg.com/scrollreveal"></script>
+        <script src="../public/js/Animation.js"></script>
         <script src="../public/js/main.js"></script>
     </body>
     <footer>

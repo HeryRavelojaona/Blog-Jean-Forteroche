@@ -1,7 +1,7 @@
 <?php $this->title = "Article"; ?>
         <header>
             <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
-                <a class="navbar-brand logo" href="default.html">Jean Forteroche</a>
+                <a class="navbar-brand logo" href="../public/index.php">Jean Forteroche</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>

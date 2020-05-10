@@ -87,6 +87,7 @@ h1 {
     border: 1px solid #31AFD4;
     border-radius: 3px;
     min-height: 300px;
+    box-shadow: 10px 5px 5px #050505;
 }
 
 .bloc-billets .date {
