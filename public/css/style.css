@@ -15,6 +15,7 @@ p {
 
 /*Navbar*/
 .logo {
+    position: absolute;
     font-size: 1em;
 }
 

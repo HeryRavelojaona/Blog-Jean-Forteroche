@@ -35,7 +35,7 @@ class ArticleDAO extends DAO
     * @param int $limit sql DESC LIMIT end
     * @param boolean $published Publish or not
     */
-    public function showArticles($start,  $limit, $published = NULL)
+    public function showLastArticles($start,  $limit, $published = NULL)
     {
         if($published){
             //articles for Front view
@@ -54,9 +54,28 @@ class ArticleDAO extends DAO
         return $articles;
     }
 
+    public function showArticles($published = NULL, $order)
+    {
+        if($published){
+            //articles for Front view
+            $sql = "SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article WHERE article.status =1 ORDER BY article.created_at $order"; 
+        }else{
+            //for admin
+            $sql = "SELECT article.id , article.title, article.content, article.created_at, article.status, article.user_id FROM article INNER JOIN user ON user.id = article.user_id ORDER BY article.created_at $order";
+        }
+        $result = $this->createQuery($sql);
+        $articles = [];
+        foreach ($result as $row){
+            $articleId = $row['id'];
+            $articles[$articleId] = $this->buildObject($row);
+        }
+        $result->closeCursor();
+        return $articles;
+    }
+
     public function countArticles()
     {
-        $sql = 'SELECT COUNT(id) FROM article';
+        $sql = 'SELECT COUNT(id) FROM article WHERE status=1';
         $result = $this->createQuery($sql);
         $countId = $result->fetch();
         $count= $countId['COUNT(id)'];
@@ -101,15 +120,5 @@ class ArticleDAO extends DAO
          'status'=>$status,
          'id'=>$articleId
         ]);
-    }
-
-    public function getUser()
-    {
-        $sql = 'SELECT user.id , user.pseudo, user.role, user.status FROM user ORDER BY id';
-        $result = $this->createQuery($sql);
-        $user = $result->fetch();
-        $user = $this->buildObject($user);
-        $result->closeCursor();
-        return $user;
     }
 }

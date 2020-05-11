@@ -22,7 +22,6 @@
         <link rel="stylesheet" type="text/css" media="screen and (min-width: 992px)" href="../public/css/desktop.css"><!--large-devices-->
     </head>
     <body data-spy="scroll" data-target=".navbar" data-offset="60" >
-
         <div id="content">
             <?= $content ?>
         </div>

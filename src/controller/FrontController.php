@@ -12,9 +12,10 @@ class FrontController extends Controller
     {
         // Pagination
         $count =  (int) $this->articleDAO->countArticles();
-        $artPerPage = 4;
+        $artPerPage = 2;
         $currentPage = 1;
         $nbPage = ceil($count/$artPerPage);
+        var_dump($count);
 
         if($get->get('page')){
            $page =  $get->get('page');
@@ -27,14 +28,19 @@ class FrontController extends Controller
         * @param boolean $published if the article is published
         */
         $start = ($currentPage - 1) * $artPerPage;
-        $limit = $start + $artPerPage;
+        $limit = $artPerPage;
 
         $published = true;
-        $articles = $this->articleDAO->showArticles($start, $limit, $published);
+        $articles = $this->articleDAO->showLastArticles($start, $limit, $published);
+        //navbar
+        $order = 'ASC';
+        $episodes = $this->articleDAO->showArticles($published,$order);
         return $this->view->render('home', [
             'articles' => $articles,
             'nbPage' => $nbPage,
-            'currentPage' => $currentPage
+            'currentPage' => $currentPage,
+            'episodes' => $episodes,
+            'count' => $count
             ]);
         
     }
@@ -66,7 +72,13 @@ class FrontController extends Controller
                 'errors' => $errors
             ]);  
         }
-        return $this->view->render('register');
+        //Link for Navbar
+        $published = true;
+        $order = 'ASC';
+        $episodes = $this->articleDAO->showArticles($published,$order);
+        return $this->view->render('register',[
+            'episodes' => $episodes
+        ]);
     }
 
     public function validateAccount(Parameter $get)
@@ -106,14 +118,20 @@ class FrontController extends Controller
                 ]);
             }
         }
-        return $this->view->render('login');
+         //Link for Navbar
+         $published = true;
+         $order = 'ASC';
+         $episodes = $this->articleDAO->showArticles($published, $order);
+         return $this->view->render('login',[
+             'episodes' => $episodes
+         ]);
     }
 
     public function article(Parameter $get)
     {
         if($get->get('articleId')){
             $articleId =  $get->get('articleId');
-             if(($articleId > 1))
+            if(($articleId > 1)){
                 $article = $this->articleDAO->showArticle($articleId);
                 $comments = $this->commentDAO->showComments($articleId);
                 //add user pseudo with his Id
@@ -127,11 +145,17 @@ class FrontController extends Controller
                     $userPseudo = NULL;
                 }
 
+                //Link for Navbar
+                $published = true;
+                $order = 'ASC';
+                $episodes = $this->articleDAO->showArticles($published,$order);
                 return $this->view->render('article',[
                     'article' => $article,
                     'comments' => $comments,
-                    'userPseudo'=>$userPseudo
+                    'userPseudo'=>$userPseudo,
+                    'episodes' => $episodes
                 ]);
+            }
          }
     
            

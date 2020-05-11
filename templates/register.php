@@ -1,23 +1,6 @@
 <?php $this->title = "Inscription"; ?>
-        <header>
-            <nav class="navbar navbar-dark navbar-expand-lg fixed-top">
-                <a class="navbar-brand logo" href="../public/index.php">Jean Forteroche</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_menu" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-center " id="nav_menu">
-                    <ul class="navbar-nav ">
-                        <li class="nav-item">
-                            <a class="nav-link" href="../public/index.php">Accueil</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a href="#" class="nav-link active" data-toggle="dropdown" role="button" aria-expanded="false">Login</a>
-                            <ul class="dropdown-menu" role="menu">
-                            <li><a href="../public/index.php?route=login">Connexion</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </header>
+<!--Include form navbar-->
+<?php include ('navbar.php'); ?>
         <section id="header_img">
             <img src="images/book.jpg"class="img-fluid imgtest"/>
             <div class='caption'>

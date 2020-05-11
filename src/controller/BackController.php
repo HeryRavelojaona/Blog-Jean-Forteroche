@@ -8,7 +8,14 @@ class BackController extends Controller
 {
     public function profile()
     {
-        return $this->view->render('profile');
+        //Link for Navbar
+        $published = true;
+        $order = 'ASC';
+        $episodes = $this->articleDAO->showArticles($published,$order);
+
+        return $this->view->render('profile',[
+            'episodes' => $episodes
+        ]);
     }
 
     public function updatePassword(Parameter $post)
@@ -30,7 +37,14 @@ class BackController extends Controller
                 return $this->view->render('updatePassword',['errors' => $errors]);  
                 
             }
-            return $this->view->render('updatePassword');
+            //Link for Navbar
+            $published = true;
+            $order = 'ASC';
+            $episodes = $this->articleDAO->showArticles($published, $order);
+
+            return $this->view->render('updatePassword',[
+                'episodes' => $episodes
+            ]);
         }
     }
 
@@ -61,7 +75,14 @@ class BackController extends Controller
                 'errors' => $errors
             ]);  
         }
-        return $this->view->render('forgotpass');
+        //Link for Navbar
+        $published = true;
+        $order = 'ASC';
+        $episodes = $this->articleDAO->showArticles($published, $order);
+
+        return $this->view->render('forgotpass',[
+            'episodes' => $episodes
+        ]);
     }
 
     public function ChangePassword(Parameter $get)
@@ -106,15 +127,19 @@ class BackController extends Controller
                     }
             //All Users
             $users = $this->userDAO->getUsers();
-                    
-            $start = 0;
-            $limit = 100;
-            $articles = $this->articleDAO->showArticles($start, $limit);
+            $order = 'DESC';
+            $articles = $this->articleDAO->showArticles(NULL,$order);
+            //Link for Navbar
+            $published = true;
+            $orderNav = 'ASC';
+            $episodes = $this->articleDAO->showArticles($published,$orderNav);
+
             return $this->view->render('administration', [
                 'articles' => $articles,
                 'comments' => $comments,
                 'userPseudo' => $userPseudo,
-                'users' => $users
+                'users' => $users,
+                'episodes' => $episodes
                 ]);
         }
    
@@ -147,7 +172,13 @@ class BackController extends Controller
                     'post'=>$post
                 ]);
             }
-            return $this->view->render('addarticle');
+            //Link for Navbar
+            $published = true;
+            $order = 'ASC';
+            $episodes = $this->articleDAO->showArticles($published, $order);
+            return $this->view->render('addarticle',[
+                'episodes' => $episodes
+            ]);
         }
     }
 
@@ -183,9 +214,14 @@ class BackController extends Controller
                 ]);
             };
 
-            
+             //Link for Navbar
+        $published = true;
+        $order = 'ASC';
+        $episodes = $this->articleDAO->showArticles($published, $order);
+
             return $this->view->render('updatearticle',[
-                'article' => $article
+                'article' => $article,
+                'episodes' => $episodes
             ]);
         }
     }
