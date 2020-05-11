@@ -63,7 +63,10 @@ class BackController extends Controller
 
            if(!$this->userDAO->checkMail($post)){
                 $errors = 'compte inexistant';
-            };
+            }
+            if($post->get('mail') != $post->get('checkmail')){
+                $errors = 'Mail non identique';
+            }
             if(!$errors){
                 $this->session->set('mailforgot', 'Veuillez validez le mail de changement');
                 $this->mailing->forgotPassword($post->get('mail'));
