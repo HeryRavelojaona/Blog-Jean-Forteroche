@@ -281,4 +281,13 @@ td a {
     color: red;
 }
 
+.arrowUp{
+    display: none;
+    font-size: 60px;
+    color: #ff2631;
+    position: fixed;
+    right: 0.7em;
+    bottom: 80px;
+    z-index: 3;
+}
 

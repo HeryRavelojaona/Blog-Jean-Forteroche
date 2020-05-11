@@ -5,11 +5,12 @@
 class Animation {
     constructor(){
         this.AnimationScroll();
+        this.ArrowUp();
     
     }
-
+    //animation scrollReveal librarie
     AnimationScroll() {
-         //animation scrollReveal librarie
+         
         const sr = ScrollReveal();
         sr.reveal('h1', {
             origin: 'left',
@@ -21,16 +22,16 @@ class Animation {
             origin: 'top',
             distance:'100px',
             duration: 2000 });
-
-        sr.reveal('.navbar-brand', {
-            origin: 'left',
-            distance:'100px',
-            rotate: {
-                x: 0,
-                y: 180,
-                z: 0,
-            },
-            duration: 1000 });
     }
 
+    /*Show and hide arrow at scroll*/
+    ArrowUp() {
+        $(window).on('scroll',() =>{
+            if(window.scrollY >400){
+            $('.arrowUp').show();
+            }else{
+                $('.arrowUp').hide();
+            }
+         })
+    }
 }
