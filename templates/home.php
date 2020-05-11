@@ -57,12 +57,14 @@
             </div>   
         </section>
         <section id="description">
-            <p>HellozdzdLe Lorem Ipsum est simp
+            <p>
+                Jean Forteroche, acteur et écrivain. J'ai décidé d'innover en vous présentant mon nouveau livre épisodes par épisodes
                 lement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour
                 ljdzljdzln</p>
+            
         </section>
         <section id="content" class="container" >
-             
+
             <div class="row">
             <?php
                 foreach ($articles as $article)

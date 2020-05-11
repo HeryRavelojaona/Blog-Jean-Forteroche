@@ -50,7 +50,7 @@
         <section id="content" class="container" >
             <div class="row">
                 <div class="bloc-content col-md-12 " >
-                    <div class="bloc-billets">
+                    <div class="bloc-billet">
                         <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?>  <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
                         <p class="billet"><?= htmlspecialchars($article->getContent());?></p>
                     </div>
