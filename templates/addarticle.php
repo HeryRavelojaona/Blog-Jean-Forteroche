@@ -15,7 +15,7 @@
                 <div class="bloc-content col-md-12">
                     <form class="form-billet form-group" action="../public/index.php?route=addarticle" method="post">
                         <label for="title" class="title-form">Titre</label>
-                        <input type="text" name="title" value="<?= isset($post) ? $post->get('title') : '' ?>" class="title-billet form-control">
+                        <input type="text" name="title" value="<?= isset($post) ? $post->get('title') : '' ?>" class="title-billet-add form-control">
                         <span class="form-error"><?= isset($errors['title']) ? $errors['title']: ''; ?></span>
                         <label for="content" class="title-form">Billet</label>
                         <textarea id="admintext" name="content" class="billet form-control "><?= isset($post) ? $post->get('content') : '' ?></textarea>

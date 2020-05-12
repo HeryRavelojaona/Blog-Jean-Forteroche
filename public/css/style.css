@@ -76,6 +76,7 @@ h1 {
 .title-billet {
     text-align: center;
     margin-bottom: 10px;
+    padding: 10px;
     border-bottom: 1px solid #31AFD4;
     display: flex;
     flex-direction: column;
@@ -93,9 +94,11 @@ h1 {
     border-radius: 3px;
     box-shadow: 10px 5px 5px #050505;
     height: 400px;
+    
 }
 
 .bloc-billet{
+    line-height: 1em;
     height: auto;
     padding: 35px;
     margin: 15px;
@@ -106,7 +109,8 @@ h1 {
 }
 
 
-.bloc-billets .date {
+.bloc-billets .date,
+.bloc-billet .date {
     font-size: 0.5em;
 }
 
@@ -226,11 +230,24 @@ footer {
 /*table Article*/
 .table-article td {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+}
+
+.table-article h3 {
+    background-color: #050505;
+    color: #fff;
+    padding: 3px;
+    border-radius: 5px;
+    border: 3px solid #31AFD4;
 }
 
 .table-article .btnAdmin {
     width : 90px;
+}
+
+.table-article .action {
+    flex-direction: row;
 }
 
 .table-article tr {
@@ -239,13 +256,9 @@ footer {
 }
 
 .table-article .extrait  {
-    display: none;
-}
-
-
-.table-article thead,
-.table-article tfoot {
-    display: none;
+    display: block;
+    overflow: hidden;
+    max-height: 150px;
 }
 
 .table td {

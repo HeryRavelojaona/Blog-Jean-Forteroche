@@ -12,8 +12,8 @@
             <div class="row">
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billet">
-                        <h3 class="title-billet"><?= htmlspecialchars($article->getTitle());?>  <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
-                        <p class="billet"><?= htmlspecialchars($article->getContent());?></p>
+                        <h3 class="title-billet"><?= $article->getTitle();?><br/><span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
+                        <p class="billet"><?= $article->getContent();?></p>
                     </div>
                     <?php if($this->session->get('pseudo')){include ('post_comment.php');}; ?>
             

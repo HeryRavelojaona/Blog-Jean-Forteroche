@@ -1,18 +1,11 @@
 $(document).ready(function(e) {
  
-     $(window).on('scroll',() =>{
-        if(window.scrollY >400){
-        $('.arrowUp').show();
-    }else{
-        $('.arrowUp').hide();
-    }
-
-
-     })
-    
     //Tinymce
     tinymce.init({  selector:'textarea#admintext',
                     height : "480"
+    });
+    tinymce.init({  selector:'.title-billet-add',
+                    height : "250"
     });
 
     const animation = new Animation();
