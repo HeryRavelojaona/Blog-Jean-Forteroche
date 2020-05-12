@@ -5,15 +5,19 @@
     margin: 10px auto;
 }
 /*adminView style*/
-td a {
-    width: auto;
-    padding: 0;
+/*table Article*/
+
+
+.table-article .btnAdmin {
+    vertical-align: middle;
+    justify-content: center;
+    width : 150px;
 }
 
-.table td, .table th {
-    padding: .75rem;
-    vertical-align: middle;
+.table-article .extrait  {
+    display: block;
 }
+
 
 
 

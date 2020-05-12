@@ -14,22 +14,23 @@
         <h1>Billet simple<br>pour l'Alaska</h1> 
     </div>   
 </section>
-<section class="container">
+<section class="container section-article">
     <div class="row">
         <div class="bloc-content col-md-12">
-        <h2 class="h2adminView">Liste des articles 
+            <h2 class="h2adminView">Liste des articles 
                 <a href="../public/index.php?route=addarticle" class="btn btn-success new-billet">Nouvelle article 
                     <span>
                         <i class="fas fa-plus"></i>
                     </span>
                 </a>
-            <table  class="table table-striped table-bordered table-hover tresponsive">
+            </h2>
+            <table  class="table table-striped table-bordered table-hover table-article">
                 <legend>Gestion des articles</legend>
                 <thead class="thead-dark">
                     <tr>
                         <th >Titre</th>
                         <th>Date de création</th>
-                        <th>Extrait</th>
+                        <th class="extrait">Extrait</th>
                         <th>Status</th> 
                         <th>Actions</th>
                     </tr>
@@ -48,7 +49,7 @@
                     <tr>
                         <td><?= htmlspecialchars($article->getTitle());?></td>
                         <td class="date"><?= htmlspecialchars($article->getCreatedAt());?></td>
-                        <td class="extrait"><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></td>
+                        <td class="extrait"><p><?= substr(htmlspecialchars($article->getContent()),0 ,100);?></p></td>
                         <td><?= htmlspecialchars($status);?></td>
                         <td>
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Voir <i class="fas fa-eye"></i></a>
@@ -57,15 +58,15 @@
                         <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i><a>
                         </td> 
                     </tr>
-    <?php
-        }
-    ?>  
+                <?php
+                    }
+                ?>  
                 </tbody>
                 <tfoot class="thead-dark">
                     <tr scope="row">
                         <th scope="col">Titre</th>
                         <th scope="col">Date de création</th>
-                        <th scope="col">Extrait</th>
+                        <th scope="col" class="extrait">Extrait</th>
                         <th scope="col">Status</th> 
                         <th scope="col">Actions</th> 
                     </tr>
@@ -84,7 +85,7 @@
                     </span>
                 </a>
         </h2>
-            <table  class="table table-striped table-bordered table-hover tresponsive">
+            <table class="table table-striped table-bordered table-hover tresponsive">
                 <legend>Gestion des commentaires</legend>
                 <thead class="thead-dark">
                     <tr>
@@ -134,7 +135,7 @@
                     </span>
                 </a>
         </h2>
-            <table  class="table table-striped table-bordered table-hover tresponsive">
+            <table class="table table-striped table-bordered table-hover tresponsive">
                 <legend>Gestion des utilisateurs</legend>
                 <thead class="thead-dark">
                     <tr>

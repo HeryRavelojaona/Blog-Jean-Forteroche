@@ -216,10 +216,6 @@ footer {
     color: #fff !important;
 }
 
-.btnAdmin {
-    width : 150px;
-}
-
 .h2adminView {
     margin-bottom: 10px;
 }
@@ -227,14 +223,41 @@ footer {
 .table {
     text-align: center;
 }
+/*table Article*/
+.table-article td {
+    display: flex;
+    justify-content: center;
+}
+
+.table-article .btnAdmin {
+    width : 90px;
+}
+
+.table-article tr {
+    border-radius: 3px;
+    border: solid #050505;
+}
+
+.table-article .extrait  {
+    display: none;
+}
+
+
+.table-article thead,
+.table-article tfoot {
+    display: none;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+.btnAdmin {
+    width : 150px;
+}
 
 td a {
     margin: 10px 0;
-}
-
-.table .date,
-.table .extrait {
-    font-size: 0.7em;
 }
 
 #admintext {
