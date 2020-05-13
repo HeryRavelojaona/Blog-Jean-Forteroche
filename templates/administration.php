@@ -109,7 +109,7 @@
                         <button class="check-delete btn btn-danger btnAdmin">Supprimer</button>
                         <div class="control-delete">
                             <p class="go-delete">Etes vous sur ?</p>
-                            <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin go-delete">Oui <i class="fas fa-trash-alt"></i><a>
+                            <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger go-delete">Oui <i class="fas fa-trash-alt"></i><a>
                             <button class="go-delete stop-delete btn btn-secondary">Non</button>
                         </div>
                        

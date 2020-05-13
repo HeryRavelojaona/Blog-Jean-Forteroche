@@ -24,7 +24,7 @@
                         <input type="submit" class="btn btn-warning col-md-6 " name="save" id="save" value="Enregistrer">
                         <input type="submit" class="btn  col-md-6 " name="submit" id="submit" value="Publier">
                     </div>
-                        <button type="reset" class="btn btn-danger delete col-md-6" >Effacer</button>
+                    <button type="reset" class="btn btn-danger delete col-md-12" >Effacer</button>
                     </form>
                 </div>
                 <a href="../public/index.php?route=administration" class="btn btn-info return">Retour</a>

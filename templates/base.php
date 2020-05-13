@@ -37,7 +37,8 @@
         <script src="../public/js/main.js"></script>
     </body>
     <footer>
-        <p>Tous droit reserve 2020</p>
         <p>Jean Forteroche présente son livre 'Un billet simple pour l'Alaska'</p>
+        <p>Tous droit reserve 2020</p>
+        <p>Site réalisé par Hery Ravelojaona</p>
     </footer>
 </html>

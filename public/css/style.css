@@ -348,6 +348,8 @@ td a {
 }
 
 .go-delete {
+    display: flex;
+    flex-direction: column;
     display: none;
 }
 
