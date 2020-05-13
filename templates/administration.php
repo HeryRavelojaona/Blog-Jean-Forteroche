@@ -205,7 +205,7 @@
                         <?php
                         if($user->getRole()!= 'admin'){
                          ?>
-                         <a href="../public/index.php?route=deleteuser&userId=<?= htmlspecialchars($user->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
+                         <a href="../public/index.php?route=deleteuser&userId=<?= htmlspecialchars($user->getId());?>&role=<?= htmlspecialchars($user->getRole());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
                         <a href="../public/index.php?route=changerole&userId=<?= htmlspecialchars($user->getId());?>&role=<?= htmlspecialchars($user->getRole());?>" class="btn btn-warning btnAdmin">Changer son role en administrateur<i class="fas fa-exchange-alt"></i><a>
                          <?php
                         } 

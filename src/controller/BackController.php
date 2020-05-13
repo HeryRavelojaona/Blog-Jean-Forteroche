@@ -39,18 +39,6 @@ class BackController extends Controller
         }
    
     }
-    
-    public function profile()
-    {
-        //Link for Navbar
-        $published = true;
-        $order = 'ASC';
-        $episodes = $this->articleDAO->showArticles($published,$order);
-
-        return $this->view->render('profile',[
-            'episodes' => $episodes
-        ]);
-    }
 
     public function updatePassword(Parameter $post)
     {
@@ -80,15 +68,6 @@ class BackController extends Controller
                 'episodes' => $episodes
             ]);
         }
-    }
-
-    public function logout()
-    {
-        $this->session->stop();
-        $this->session->start();
-        $this->session->set('logout', 'Vous êtes déconnecter');
-        header('Location: ../public/index.php');
-        exit();
     }
 
     public function forgotPassword(Parameter $post)
@@ -305,10 +284,10 @@ class BackController extends Controller
             if($get->get('userId')){
                 $userId = $get->get('userId');
                 if($get->get('role')=='user'){
-                $this->userDAO->deleteUser($userId);
-                $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
-                header('Location: ../public/index.php?route=administration');
-                exit();
+                    $this->userDAO->deleteUser($userId);
+                    $this->session->set('delete_user', 'L\'utilisateur a bien été supprimé');
+                    header('Location: ../public/index.php?route=administration');
+                    exit();
                 }else{
                     $this->session->set('delete_impossible', 'Impossible de supprimé un administrateur');
                     header('Location: ../public/index.php?route=administration');
