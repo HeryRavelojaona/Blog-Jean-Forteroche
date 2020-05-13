@@ -6,6 +6,40 @@ use Blog\config\Parameter;
 
 class BackController extends Controller
 {
+    public function administration()
+    {
+        if($this->checkIfAdmin()){
+            $comments = $this->commentDAO->getFlagComments();
+                    //add user pseudo with his Id
+                    foreach($comments as $comment){
+                        $userId = $comment->getUserId();
+                        $pseudo = $this->userDAO->getPseudo($userId);
+                    }
+                    if(!empty($pseudo)){
+                        $userPseudo = $pseudo;
+                    }else{
+                        $userPseudo = NULL;
+                    }
+            //All Users
+            $users = $this->userDAO->getUsers();
+            $order = 'DESC';
+            $articles = $this->articleDAO->showArticles(NULL,$order);
+            //Link for Navbar
+            $published = true;
+            $orderNav = 'ASC';
+            $episodes = $this->articleDAO->showArticles($published,$orderNav);
+
+            return $this->view->render('administration', [
+                'articles' => $articles,
+                'comments' => $comments,
+                'userPseudo' => $userPseudo,
+                'users' => $users,
+                'episodes' => $episodes
+                ]);
+        }
+   
+    }
+    
     public function profile()
     {
         //Link for Navbar
@@ -114,39 +148,7 @@ class BackController extends Controller
         }
     }
 
-    public function administration()
-    {
-        if($this->checkIfAdmin()){
-            $comments = $this->commentDAO->getFlagComments();
-                    //add user pseudo with his Id
-                    foreach($comments as $comment){
-                        $userId = $comment->getUserId();
-                        $pseudo = $this->userDAO->getPseudo($userId);
-                    }
-                    if(!empty($pseudo)){
-                        $userPseudo = $pseudo;
-                    }else{
-                        $userPseudo = NULL;
-                    }
-            //All Users
-            $users = $this->userDAO->getUsers();
-            $order = 'DESC';
-            $articles = $this->articleDAO->showArticles(NULL,$order);
-            //Link for Navbar
-            $published = true;
-            $orderNav = 'ASC';
-            $episodes = $this->articleDAO->showArticles($published,$orderNav);
-
-            return $this->view->render('administration', [
-                'articles' => $articles,
-                'comments' => $comments,
-                'userPseudo' => $userPseudo,
-                'users' => $users,
-                'episodes' => $episodes
-                ]);
-        }
-   
-    }
+    
 
     public function addArticle(Parameter $post)
     {

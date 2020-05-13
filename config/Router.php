@@ -37,14 +37,20 @@ class Router
                 elseif($route === 'login'){
                     $this->frontController->login($this->request->getPost());
                 }
+                elseif($route === 'logout'){
+                    $this->frontController->logout();
+                }
+                elseif($route === 'profile'){
+                    $this->frontController->profile();
+                }
                 elseif($route === 'article'){
-                    $this->frontController->article($this->request->getGet());
+                    $this->frontController->article($this->request->getGet('articleId'));
                 }
                 elseif($route === 'addcomment'){
-                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet());
+                    $this->frontController->addComment($this->request->getPost(), $this->request->getGet('articleId'));
                 }
                 elseif($route === 'flag'){
-                    $this->frontController->flag($this->request->getGet());
+                    $this->frontController->flag($this->request->getGet('commentId'));
                 }
                 elseif($route === 'contact'){
                     $this->frontController->contact($this->request->getPost());
@@ -62,14 +68,9 @@ class Router
                 elseif($route === 'changerole'){
                     $this->backController->changeRole($this->request->getGet());
                 }
-                elseif($route === 'profile'){
-                    $this->backController->profile();
-                }
+                
                 elseif($route === 'updatePassword'){
                     $this->backController->updatePassword($this->request->getPost());
-                }
-                elseif($route === 'logout'){
-                    $this->backController->logout();
                 }
                 elseif($route === 'forgotpass'){
                     $this->backController->forgotPassword($this->request->getPost());
@@ -98,7 +99,7 @@ class Router
 
             }
             else {
-                $this->frontController->home($this->request->getGet());
+                $this->frontController->home($this->request->getGet('page'));
             }
         }
         catch (Exception $e)

@@ -15,12 +15,11 @@ class FrontController extends Controller
         $artPerPage = 2;
         $currentPage = 1;
         $nbPage = ceil($count/$artPerPage);
-        var_dump($count);
 
-        if($get->get('page')){
+        if(isset($get)){
            $page =  $get->get('page');
             if(($page > 0) && ($page <=  $nbPage) )
-                $currentPage = $get->get('page');
+                $currentPage = $page;
         }
         /**
         * @param int $start sql DESC LIMIT start
@@ -81,10 +80,10 @@ class FrontController extends Controller
         ]);
     }
 
+    //Validation with link in a mail
     public function validateAccount(Parameter $get)
     {
-        
-        if($get){
+        if(isset($get)){
             $this->userDAO->validateAccount($get);
             $this->session->set('validate', 'Votre compte est bien validé');
             header('Location: ../public/index.php');
@@ -127,9 +126,30 @@ class FrontController extends Controller
          ]);
     }
 
+    public function profile()
+    {
+        //Link for Navbar
+        $published = true;
+        $order = 'ASC';
+        $episodes = $this->articleDAO->showArticles($published,$order);
+
+        return $this->view->render('profile',[
+            'episodes' => $episodes
+        ]);
+    }
+
+    public function logout()
+    {
+        $this->session->stop();
+        $this->session->start();
+        $this->session->set('logout', 'Vous êtes déconnecter');
+        header('Location: ../public/index.php');
+        exit();
+    }
+
     public function article(Parameter $get)
     {
-        if($get->get('articleId')){
+        if(isset($get)){
             $articleId =  $get->get('articleId');
             if(($articleId > 1)){
                 $article = $this->articleDAO->showArticle($articleId);
@@ -157,14 +177,13 @@ class FrontController extends Controller
                 ]);
             }
          }
-    
-           
+     
          $this->errorController->errorNotFound();
     }
 
     public function addComment(Parameter $post, $get)
     {
-        if($get->get('articleId')){
+        if(isset($get)){
                 $articleId =  $get->get('articleId');
         }
         if($post->get('submit')){
@@ -190,7 +209,7 @@ class FrontController extends Controller
 
     public function flag($get)
     {
-        if($get->get('commentId')){
+        if(isset($get)){
             $commentId = $get->get('commentId');
             $this->commentDAO->flag($commentId);
             $this->session->set('flag', 'Le commentaire a bien été signalé');
@@ -214,7 +233,6 @@ class FrontController extends Controller
                     'post' => $post,
                     'errors'=>$errors
                 ]);
-        }
-        
+        } 
     }
 }
