@@ -33,7 +33,7 @@
                 <div class="bloc-content col-md-6 " >
                     <div class="bloc-billets">
                         <h3 class="title-billet"><?= $article->getTitle();?><br/> <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
-                        <p class="billet"><?= substr($article->getContent(),0, 500);?></p>
+                        <div class="billet extrait"><p><?= $article->getContent();?></p></div>
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire la suite...
                             <i class="fas fa-book-open"></i>
                         </a>
