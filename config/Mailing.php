@@ -34,7 +34,7 @@ class Mailing
                             </head>
                             <body style="text-align:center">
                                 <h1>Cliquez sur le lien</h1>
-                                <a href="http://jeanforteroche.heryravelojaona.fr/public/index.php?route=validateAccount&token='.$this->token.'" style=" border: 1px solid; padding:5px; border-radius:10px;">Validation</a>
+                                <a href="https://blog.heryravelojaona.fr/public/index.php?route=validateAccount&token='.$this->token.'" style=" border: 1px solid; padding:5px; border-radius:10px;">Validation</a>
                             </body>
                         </html>';
         $message = (new Swift_Message($subject))
@@ -57,7 +57,7 @@ class Mailing
                             </head>
                             <body style="text-align:center">
                                 <h1>Cliquez sur le lien</h1>
-                                <a href="http://jeanforteroche.heryravelojaona.fr/public/index.php?route=changepass&mail='.$this->mail.'" " style=" border: 1px solid; padding:5px; border-radius:10px;">Validation</a>
+                                <a href="https://blog.heryravelojaona.fr/public/index.php?route=changepass&mail='.$this->mail.'" " style=" border: 1px solid; padding:5px; border-radius:10px;">Validation</a>
                             </body>
                         </html>';
         $message = (new Swift_Message($subject))
