@@ -1,4 +1,10 @@
 
+.form-billet .delete {
+    display: block;
+    width: 40%;
+    margin: 10px auto;
+}
+
 #description {
      width: 57%;
 }

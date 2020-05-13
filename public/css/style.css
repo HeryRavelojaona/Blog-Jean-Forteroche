@@ -107,7 +107,6 @@ h1 {
 
 }
 
-
 .bloc-billets .date,
 .bloc-billet .date {
     font-size: 0.5em;
@@ -191,7 +190,7 @@ footer {
 }
 
 .form-billet .delete {
-   
+    display: none;
     width: 40%;
     margin: 10px auto;
 }
