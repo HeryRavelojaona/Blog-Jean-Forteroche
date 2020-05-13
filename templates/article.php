@@ -63,7 +63,8 @@
             if($this->session->get('role')==="admin")
             {
         ?>
-         <a href="../public/index.php?route=administration" class="btn btn-info return">Retour</a>
+         <a href="../public/index.php?route=administration" class="btn btn-info return">Admin</a>
+         <a href="../public/index.php" class="btn btn-info return">Accueil</a>
         <?php 
             } else {
         ?>

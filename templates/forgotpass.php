@@ -33,4 +33,5 @@
                     </div>
                 </fieldset>
             </form>
+            <a href="../public/index.php" class="btn btn-info return">Retour</a>
         </section>
