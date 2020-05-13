@@ -74,7 +74,6 @@ class Mailing
         $mail = $post->get('mail');
         $pseudo = $post->get('pseudo');
         $content = $post->get('content');
-        var_dump($post);
         $subject = 'Message de votre site';
         $body = '<!DOCTYPE html>
                         <html>
@@ -87,8 +86,8 @@ class Mailing
                             </body>
                         </html>';
         $message = (new Swift_Message($subject))
-        ->setFrom([$mail => $pseudo])
-         ->setTo([$this->fromEmail])
+        ->setFrom([$this->fromEmail => $pseudo])
+         ->setTo([EMAIL_USERNAME])
         ->setBody($body, 'text/html');
 
         // Send the message
