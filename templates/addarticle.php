@@ -21,10 +21,11 @@
                         <textarea id="admintext" name="content" class="billet form-control "><?= isset($post) ? $post->get('content') : '' ?></textarea>
                         <span class="form-error"><?= isset($errors['content']) ? $errors['content']: ''; ?></span>
                     <div class="row">
-                        <input type="submit" class="btn btn-warning col-md-6 " name="save" id="save" value="Enregistrer">
-                        <input type="submit" class="btn  col-md-6 " name="submit" id="submit" value="Publier">
+                        <input type="submit" class="btn btn-warning col-md-4 " name="save" id="save" value="Enregistrer">
+                        <input type="submit" class="btn  col-md-4 " name="submit" id="submit" value="Publier">
+                        <button type="reset" class="btn btn-danger delete col-md-6" >Effacer</button>
                     </div>
-                    <button type="reset" class="btn btn-danger delete col-md-12" >Effacer</button>
+                    
                     </form>
                 </div>
                 <a href="../public/index.php?route=administration" class="btn btn-info return">Retour</a>
