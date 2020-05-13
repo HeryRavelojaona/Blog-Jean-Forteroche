@@ -8,9 +8,7 @@
             </div>   
         </section>
         <section id="description">
-            <p>HellozdzdLe Lorem Ipsum est simp
-                lement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour
-                ljdzljdzln</p>
+            <p>Inscrivez-vous pour faire partie ma communauté</p>
         </section>
 <section class="login-part container">
             <form class="form-horizontal connexion all-forms" method="post" action="../public/index.php?route=register" >

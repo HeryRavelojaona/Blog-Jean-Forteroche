@@ -18,12 +18,13 @@
             </div>   
         </section>
         <section id="description">
-            <p>HellozdzdLe Lorem Ipsum est simp
-                lement du faux texte employé dans la composition et la mise en page avant impression. Le Lorem Ipsum est le faux texte standard de l'imprimerie depuis les années 1500, quand un imprimeur anonyme assembla ensemble des morceaux de texte pour
-                ljdzljdzln</p>
+            <p>Né à Paris au lendemain de la guerre, Jean Forteroche emprunte des chemins détournés pour arriver à l’écriture.
+                Il exerce différents métiers avant de partir pour le sud de la France.
+                Trente ans plus tard, il revient à ses origines et s’installe définitivement dans la capitale pour y écrire.
+                Acteur et écrivain Jean Forteroche décide d'innover en vous présentant son livre <strong>"Billet simple pour l'Alaska"</strong> épisodes par épisodes.</p>
         </section>
         <section id="content" class="container" >
-             
+             <h2 class="home-h2">Derniers épisodes</h2>
             <div class="row">
             <?php
                 foreach ($articles as $article)

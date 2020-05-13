@@ -65,10 +65,16 @@ h1 {
     color: #fff ;
     margin: 20px auto;
     padding: 20px;
-    border-radius: 3px;
+    border-radius: 30px;
     width: 90%;
     text-align: center;
     background-color: #5D5A58;
+}
+
+.home-h2 {
+    color: #050505;
+    text-align: center;
+    border-bottom: 1px solid;
 }
 
 /*section for billets*/
@@ -351,6 +357,10 @@ td a {
     display: flex;
     flex-direction: column;
     display: none;
+}
+
+footer {
+    padding: 15px;
 }
 
 
