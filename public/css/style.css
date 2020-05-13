@@ -343,3 +343,13 @@ td a {
     z-index: 3;
 }
 
+/*Profil*/
+.control-delete {
+    margin: 20px 0;
+}
+
+.go-delete {
+    display: none;
+}
+
+

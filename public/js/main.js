@@ -10,4 +10,15 @@ $(document).ready(function(e) {
 
     const animation = new Animation();
 
+    //Validation before Delete
+    $('.check-delete').click(function(e){
+        e.preventDefault();
+        if($('.go-delete').hide()){
+            $('.go-delete').show();
+            $('.stop-delete').click(function(){
+                $('.go-delete').hide();
+            });
+        }; 
+    });
+
 });

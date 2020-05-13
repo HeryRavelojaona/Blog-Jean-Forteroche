@@ -16,9 +16,13 @@
                         <p class="billet">Role: <?= $this->session->get('role'); ?>
                         <p class="billet">Email: <?= $this->session->get('mail'); ?>
                         </p>
-                        <a href="../public/index.php?route=updatePassword">Modifier votre mot de passe</a><br/>
-                        <a href="../public/index.php?route=deleteAccount">Supprimer votre compte</a>
-                        </a>
+                        <a href="../public/index.php?route=updatePassword" class="btn btn-warning">Modifier votre mot de passe</a><br/>
+                        <div class="control-delete">
+                            <button class="check-delete btn-danger">Supprimer votre compte</button>
+                            <p class="go-delete">Etes vous sur ?</p>
+                            <a href="../public/index.php?route=deleteAccount" class="go-delete btn btn-warning">Oui</a>
+                            <button class="go-delete stop-delete btn btn-secondary">Non</button>
+                        </div>
                     </div>
                 </div>
                 <a href="../public/index.php" class="btn btn-info return">Retour</a>

@@ -106,7 +106,13 @@
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin">Voir <i class="fas fa-eye"></i></a>
                         <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-warning btnAdmin">Modifier <i class="fas fa-exchange-alt"></i><a>
                         <a href="../public/index.php?route=publishOrnot&articleId=<?= htmlspecialchars($article->getId());?>&action=<?= htmlspecialchars($action);?>" class="btn btn-<?= htmlspecialchars($color);?> btnAdmin"><?= htmlspecialchars($action);?><a>
-                        <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i><a>
+                        <button class="check-delete btn btn-danger btnAdmin">Supprimer</button>
+                        <div class="control-delete">
+                            <p class="go-delete">Etes vous sur ?</p>
+                            <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger btnAdmin go-delete">Oui <i class="fas fa-trash-alt"></i><a>
+                            <button class="go-delete stop-delete btn btn-secondary">Non</button>
+                        </div>
+                       
                         </td> 
                     </tr>
                 <?php
