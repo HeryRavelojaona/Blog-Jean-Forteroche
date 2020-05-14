@@ -12,7 +12,8 @@
             <div class="row">
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billet">
-                        <h3 class="title-billet"><?= $article->getTitle();?><br/><span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
+                    <?php $date = new Datetime($article->getCreatedAt()); ?>
+                        <h3 class="title-billet"><?= $article->getTitle();?><br/><span class="date">Créé le: <?= htmlspecialchars($date->format('d-m-Y H:i:s'));?></span></h3>
                         <p class="billet"><?= $article->getContent();?></p>
                     </div>
                     <?php if($this->session->get('pseudo')){include ('post_comment.php');}; ?>
@@ -26,8 +27,9 @@
             ?>
                         <div class="user-comment">
                             <div class="comments-header">
+                            <?php $commentDate = new Datetime($comment->getCreatedAt()); ?>
                                 <span class="pseudo">De : <?= isset($userPseudo) ? htmlspecialchars($userPseudo):''; ?> </span>
-                                <span class="date">Le : <?= isset($comment) ? htmlspecialchars($comment->getCreatedAt()) :'';?></span>
+                                <span class="date">Le : <?= isset($comment) ? htmlspecialchars($commentDate->format('d-m-Y H:i:s')) :'';?></span>
                             </div>  
                             <p class="comments-content"><?= isset($comment) ?  htmlspecialchars($comment->getContent()) : '';?></p>
                     <?php

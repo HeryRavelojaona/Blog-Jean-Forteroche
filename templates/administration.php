@@ -100,8 +100,9 @@
                                                              $color= 'primary';}
                 ?>   
                     <tr>
+                    <?php $date = new Datetime($article->getCreatedAt()); ?>
                         <td><h3>Titre</h3><?= $article->getTitle();?></td>
-                        <td class="date">Crée le: <?= htmlspecialchars($article->getCreatedAt());?></td>
+                        <td class="date">Crée le: <?= htmlspecialchars($date->format('d-m-Y H:i:s') );?></td>
                         <td class="extrait"><h3>Extrait</h3><p><?= $article->getContent();?></p></td>
                         <td><h3>Status</h3><?= htmlspecialchars($status);?></td>
                         <td class="action row">
@@ -150,8 +151,10 @@
                     {   
                 ?>   
                     <tr>
+                    <?php $commentDate = new Datetime($comment->getCreatedAt()); ?>
+                      
                         <td><?= htmlspecialchars($userPseudo);?></td>
-                        <td><?= htmlspecialchars($comment->getCreatedAt());?></td>
+                        <td><?= htmlspecialchars($commentDate->format('d-m-Y H:i:s'));?></td>
                         <td><?= htmlspecialchars($comment->getContent());?></td>
                         <td>
                         <a href="../public/index.php?route=deletecomment&commentId=<?= htmlspecialchars($comment->getId());?>" class="btn btn-danger btnAdmin">Supprimer <i class="fas fa-trash-alt"></i></a>
@@ -221,7 +224,7 @@
                 <tfoot class="thead-dark">
                     <tr scope="row">
                         <th >Pseudo</th>
-                        <th>Date de création</th>
+                        <th>Status</th>
                         <th>Role</th>
                         <th>Actions</th> 
                     </tr>

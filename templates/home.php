@@ -32,7 +32,8 @@
             ?>
                 <div class="bloc-content col-md-6 " >
                     <div class="bloc-billets">
-                        <h3 class="title-billet"><?= $article->getTitle();?><br/> <span class="date">Créé le: <?= htmlspecialchars($article->getCreatedAt());?></span></h3>
+                    <?php $date = new Datetime($article->getCreatedAt()); ?>
+                        <h3 class="title-billet"><?= $article->getTitle();?><br/> <span class="date">Créé le: <?= htmlspecialchars($date->format('d-m-Y H:i:s'));?></span></h3>
                         <div class="billet extrait"><p><?= $article->getContent();?></p></div>
                         <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>">Lire la suite...
                             <i class="fas fa-book-open"></i>
