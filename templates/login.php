@@ -2,7 +2,7 @@
 <!--Include form navbar-->
 <?php include ('navbar.php'); ?>
         <section id="header_img">
-            <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
+            <img src="../public/images/book.jpg"class="img-fluid imgtest" alt="livre"/>
             <div class='caption'>
                 <?= $this->session->show('update_password'); ?>
                 <?= $this->session->show('validate'); ?>

@@ -3,7 +3,7 @@
         <!--Include form navbar-->
         <?php include ('navbar.php'); ?>
         <section id="header_img">
-            <img src="images/book.jpg"class="img-fluid imgtest"/>
+            <img src="images/book.jpg"class="img-fluid imgtest" alt="Livre"/>
             <div class='caption'>
                 <?= $this->session->show('register'); ?>
                 <?= $this->session->show('login'); ?>
@@ -23,7 +23,7 @@
                 Trente ans plus tard, il revient à ses origines et s’installe définitivement dans la capitale pour y écrire.
                 Acteur et écrivain Jean Forteroche décide d'innover en vous présentant son livre <strong>"Billet simple pour l'Alaska"</strong> épisodes par épisodes.</p>
         </section>
-        <section id="content" class="container" >
+        <section id="bloc-articles" class="container" >
              <h2 class="home-h2">Derniers épisodes</h2>
             <div class="row">
             <?php

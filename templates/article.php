@@ -2,13 +2,13 @@
 <!--Include form navbar-->
 <?php include ('navbar.php'); ?>
         <section id="header_img">
-            <img src="images/book.jpg"class="img-fluid imgtest"/>
+            <img src="images/book.jpg"class="img-fluid imgtest" alt="livre"/>
             <div class='caption'>
                 <?= $this->session->show('add_comment'); ?>
                 <h1>Billet simple<br>pour l'Alaska</h1>
             </div>   
         </section>
-        <section id="content" class="container" >
+        <section id="bloc-articles" class="container" >
             <div class="row">
                 <div class="bloc-content col-md-12 " >
                     <div class="bloc-billet">

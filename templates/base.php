@@ -3,9 +3,9 @@
     <head>
         <meta charset="utf-8"/>
         <meta name="viewport" content="width=device-width initial-scale=1.0"/>
-        <meta name="description" content=""/>
-        <meta name="keywords" content="" />
-        <link rel="canonical" href=""/>
+        <meta name="description" content="Jean Forteroche présente son nouveau livre, Billet simple pour l'Alaska"/>
+        <meta name="keywords" content="écriain, Jean Forteroche, blog, billet simple pour l'Alaska" />
+        <link rel="canonical" href="https://blog.heryravelojaona.fr/public/"/>
         <!--Favicon and title-->
         <!--<link rel="shortcut icon" type="image/x-icon" href="public/images/favicon.ico"/>-->
         <title><?= $title ?></title>

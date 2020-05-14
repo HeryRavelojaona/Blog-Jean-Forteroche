@@ -23,46 +23,50 @@
                 <div class="dropdown">
                     <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Chapitres</a>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                    <?php
-                        $i=0;
-                    foreach ($episodes as $episode){
-                            $i++;
-                    ?>
+                        <?php
+                            $i=0;
+                            foreach ($episodes as $episode){
+                                $i++;
+                        ?>
                         <a class='dropdown-item' href='../public/index.php?route=article&articleId=<?= $episode->getId();?>'>Episode <?= $i ;?></a>
-                    <?php 
-                    };
+                        <?php 
+                            };
                         ?>
                     </div>
                 </div>
                 <li class="nav-item dropdown">
-        <?php
-            if($this->session->get('pseudo'))
-            {
-        ?>
+                <?php
+                    if($this->session->get('pseudo'))
+                    {
+                ?>
                     <a href="#" class="nav-link active" data-toggle="dropdown" role="button" aria-expanded="false">Votre espace</a>
                     <ul class="dropdown-menu" role="menu">
                     <li><a href="../public/index.php?route=profile" class="dropdown-item">Profil</a></li>
-            <?php if($this->session->get('role') === 'admin') { ?>
+                    <?php if($this->session->get('role') === 'admin') 
+                        { 
+                    ?>
                     <li><a href="../public/index.php?route=administration" class="dropdown-item">Administration</a></li>
-            <?php } ?>
+                    <?php 
+                        } 
+                    ?>
                     <li><a href="../public/index.php?route=logout" class="dropdown-item">Déconnexion</a></li>
-        <?php 
-            }else{ 
-        ?>
+                <?php 
+                    }else{ 
+                ?>
                     <a href="#" class="nav-link" data-toggle="dropdown" role="button" aria-expanded="false">Login</a>
                     <ul class="dropdown-menu" role="menu">
                     <li><a href="../public/index.php?route=register" class="dropdown-item">S'inscrire</a></li>
                     <li><a href="../public/index.php?route=login" class="dropdown-item">Connexion</a></li>        
-        <?php 
-        } 
-        ?>
+                <?php 
+                    } 
+                ?>
                 </li>
             </ul>
         </div>
     </nav>
 </header>   
 <section id="header_img">
-    <img src="../public/images/book.jpg"class="img-fluid imgtest"/>
+    <img src="../public/images/book.jpg"class="img-fluid imgtest" alt="livre"/>
     <div class='caption'>
             <?= $this->session->show('addArticle'); ?>
             <?= $this->session->show('updateArticle'); ?>
@@ -79,9 +83,7 @@
         <div class="bloc-content col-md-12">
             <h2 class="h2adminView">Liste des articles 
                 <a href="../public/index.php?route=addarticle" class="btn btn-success new-billet">Nouvelle article 
-                    <span>
-                        <i class="fas fa-plus"></i>
-                    </span>
+                    <span><i class="fas fa-plus"></i></span>
                 </a>
             </h2>
             <table  class="table table-striped table-bordered table-hover table-article">
