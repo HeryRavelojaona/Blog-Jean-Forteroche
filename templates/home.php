@@ -32,6 +32,7 @@
             ?>
                 <div class="bloc-content col-md-6 " >
                     <div class="bloc-billets">
+                    <!--Change date Format-->
                     <?php $date = new Datetime($article->getCreatedAt()); ?>
                         <h3 class="title-billet"><?= $article->getTitle();?><br/> <span class="date">Créé le: <?= htmlspecialchars($date->format('d-m-Y H:i:s'));?></span></h3>
                         <div class="billet extrait"><p><?= $article->getContent();?></p></div>

@@ -26,7 +26,7 @@
             <?= $content ?>
         </div>
 
-        <a href="#header_img"><i class="fas fa-arrow-circle-up arrowUp"></i></a>
+        <a href="#header_img"><i class="fas fa-arrow-circle-up arrowUp "></i></a>
     <!--Javascript-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
             crossorigin="anonymous"></script>

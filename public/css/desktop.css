@@ -29,16 +29,3 @@
 .post-comment textarea {
     height: 200px;
 }
-
-.page {
-
-    display: flex;
-    justify-content: center;
-    
-}
-
-.pagination li{
-    padding: 10px;
-    border-radius: 100%;
-    margin: 20px;
-}

@@ -127,18 +127,31 @@ h1 {
     overflow: hidden;
 }
 
+
 /*Pagination*/
+.page {
+    display: flex;
+    justify-content: center;
+}
+.pagination {
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
 .pagination li {
-    background-color: #050505;
-    border: 1px solid #31AFD4;
-    padding: 4px;
-    border-radius: 100%;
-    color: #fff;
-    margin: 3px auto;
+    width: 60px;
+    text-align: center;
 }
 
 .pagination li a {
+    position: relative;
+    padding: 5px 10px;
+    border-radius: 50%;
+    background-color: #050505;
+    border: 1px solid #31AFD4;
     color: #fff;
+    box-shadow: 6px 3px 3px #050505;
 }
 
 /*Contact and Connexion*/
@@ -256,7 +269,8 @@ footer {
 }
 
 .table-article .btnAdmin {
-    width : 90px;
+    color: #fff;
+    margin: 10px;
 }
 
 .table-article .action {
@@ -280,7 +294,6 @@ footer {
 
 .btnAdmin {
     text-align: center;
-    width : 150px;
 }
 
 td a {
@@ -347,13 +360,16 @@ td a {
     color: red;
 }
 
-.arrowUp{
+.arrowUp {
     display: none;
-    font-size: 60px;
+    font-size: 50px;
     color: #ff2631;
+    background-color: #fff;
+    border-radius: 50%;
     position: fixed;
     right: 0.5em;
-    bottom: 60px;
+    bottom: 80px;
+    box-shadow: 8px 3px 3px #050505;
     z-index: 3;
 }
 

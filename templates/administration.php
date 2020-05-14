@@ -108,8 +108,8 @@
                         <td class="action row">
                             <a href="../public/index.php?route=article&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-info btnAdmin col-md-4">Voir <i class="fas fa-eye"></i></a>
                             <a href="../public/index.php?route=updatearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-warning btnAdmin col-md-4">Modifier <i class="fas fa-exchange-alt"></i><a>
-                            <a href="../public/index.php?route=publishOrnot&articleId=<?= htmlspecialchars($article->getId());?>&action=<?= htmlspecialchars($action);?>" class="btn col-md-4 btn-<?= htmlspecialchars($color);?> btnAdmin"><?= htmlspecialchars($action);?><a>
-                            <button class="check-delete btn btn-danger btnAdmin ">Supprimer</button>
+                            <a href="../public/index.php?route=publishOrnot&articleId=<?= htmlspecialchars($article->getId());?>&action=<?= htmlspecialchars($action);?>" class="btn btnAdmin col-md-4  btn-<?= htmlspecialchars($color);?>"><?= htmlspecialchars($action);?><a>
+                            <a class="check-delete btn btn-danger btnAdmin col-md-4 ">Supprimer</a>
                             <div class="control-delete">
                                 <p class="go-delete">Etes vous sur ?</p>
                                 <a href="../public/index.php?route=deletearticle&articleId=<?= htmlspecialchars($article->getId());?>" class="btn btn-danger go-delete">Oui <i class="fas fa-trash-alt"></i><a>
